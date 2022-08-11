@@ -1,11 +1,20 @@
 ---
 layout: default
 ---
-PUT_SOME_WELCOME_MESSAGE_HERE
+
+Hi! Welcome to Shyamal's Space!
+
+<h1>About Me</h1>
+
+Applied AI @ OpenAI • Software Engineer • On Deck Fellow
+
+My mission is to build & contribute to products and experiences that have a positive impact.
+
+<h1>Posts</h1>
 <ul>
   {% for post in site.posts %}
     <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      {{ post.date | date: "%Y/%m/%d"}} <a href="{{ post.url }}">{{ post.title }}</a>
     </li>
   {% endfor %}
 </ul>
