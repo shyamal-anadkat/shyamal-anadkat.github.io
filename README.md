@@ -1,1 +1,2 @@
-# shyamal-anadkat.github.io
+[![pages-build-deployment](https://github.com/shyamal-anadkat/shyamal-anadkat.github.io/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/shyamal-anadkat/shyamal-anadkat.github.io/actions/workflows/pages/pages-build-deployment)
+
