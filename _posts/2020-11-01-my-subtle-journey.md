@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A subtle journey into data science"
+title: "A subtle journey into Data Science"
 tags:
 - Journey
 - Thoughts
