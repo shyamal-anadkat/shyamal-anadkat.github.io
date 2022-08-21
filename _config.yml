@@ -10,3 +10,4 @@ linkedin_username: zostale
 description: Applied AGI @ OpenAI • Software Engineer • On Deck Fellow • Proud Son • Duke + Wisconsin Alum • Building for impact 
 show_downloads: false
 google_analytics: G-38XE3DD209
+permalink: /blog/:title/
