@@ -18,3 +18,7 @@ When it comes to code review, there are a few best practices to keep in mind in 
 **Be open to hearing feedback about your own code**: Finally, be open to hearing feedback about your own code. It can be easy to get defensive when someone is pointing out potential issues in your work, but remember that the goal is to improve the code. Be open to the feedback and use it to make your code better.
 
 In general, code review is a valuable tool for improving code quality and ensuring that code meets the standards set by the team. By following these best practices, you can make code review a more effective and constructive process
+
+
+
+<small><i>The author generated this text in part with GPT-3, OpenAI’s large-scale language-generation model. Upon generating draft language, the author reviewed, edited, and revised the language to their own liking and takes ultimate responsibility for the content of this publication.</i></small>

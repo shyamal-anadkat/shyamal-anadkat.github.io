@@ -19,3 +19,6 @@ Second, we need to ensure that AI is developed with input from a diverse range o
 Third, we need to ensure that AI is tested and evaluated before it is deployed. We need to make sure that AI is safe and effective before it is used in the real world. This will help to prevent AI from being used for harmful purposes.
 
 What are your thoughts on ethical AI? How can we ensure that AI is developed and used ethically? 
+
+
+<small><i>The author generated this text in part with GPT-3, OpenAI’s large-scale language-generation model. Upon generating draft language, the author reviewed, edited, and revised the language to their own liking and takes ultimate responsibility for the content of this publication.</i></small>

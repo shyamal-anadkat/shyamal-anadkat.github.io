@@ -17,3 +17,6 @@ There have been a number of high-profile AI safety incidents in recent years, in
 AI alignment is also a relatively new field, and there are a number of different approaches. One key challenge is that, as AI systems become more intelligent, they may become better at hiding their true goals and intentions from us. This could lead to dangerous situations where AI systems are pursuing their own objectives, rather than ours.
 
 There is a lot of work still to be done in both AI safety and alignment, but it’s important to get started now. The stakes are high, and we need to make sure that we get this right. AI systems are going to become increasingly important in our lives, and we need to make sure that they are safe and aligned with our best interests.
+
+
+<small><i>The author generated this text in part with GPT-3, OpenAI’s large-scale language-generation model. Upon generating draft language, the author reviewed, edited, and revised the language to their own liking and takes ultimate responsibility for the content of this publication.</i></small>
