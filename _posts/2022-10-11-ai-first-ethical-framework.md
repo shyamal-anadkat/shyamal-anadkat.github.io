@@ -15,15 +15,15 @@ There are many ethical concerns to consider when it comes to AI, such as bias, d
 
 Given these concerns, it is clear that we need an ethical framework to help us evaluate AI-first products and software. The framework I propose has five key elements: stakeholder impact, transparency, explainability, bias mitigation, and accountability.
 
-First, we must consider the impact of our AI products on different stakeholders, including users, customers, and society at large. We need to be thoughtful about how our products will impact the lives of different people and work to maximize positive outcomes while minimizing negative consequences.
+**First, we must consider the impact of our AI products on different stakeholders, including users, customers, and society at large**. We need to be thoughtful about how our products will impact the lives of different people and work to maximize positive outcomes while minimizing negative consequences.
 
-Second, we need to be transparent about how our products collect and use data. This means disclosing our data collection practices, as well as giving users the ability to control how their data is used.
+**Second, we need to be transparent about how our products collect and use data**. This means disclosing our data collection practices, as well as giving users the ability to control how their data is used.
 
-Third, we need to ensure that our algorithms are explainable. This means that users should be able to understand how our algorithms make decisions, even if they don't understand the underlying code.
+**Third, we need to ensure that our algorithms are explainable**. This means that users should be able to understand how our algorithms make decisions, even if they don't understand the underlying code.
 
-Fourth, we must work to mitigate bias in our products. This means being diligent in the design process to ensure that our products are fair and equitable to all users.
+**Fourth, we must work to mitigate bias in our products**. This means being diligent in the design process to ensure that our products are fair and equitable to all users.
 
-Finally, we need to be accountable for the effects of our AI products. This means monitoring our products for potential issues, responding to concerns, and taking steps to address any problems that arise.
+**Finally, we need to be accountable for the effects of our AI products**. This means monitoring our products for potential issues, responding to concerns, and taking steps to address any problems that arise.
 
 There are a number of companies that have already implemented this framework (or elements of it) in their development of AI-first products. For example, IBM's AI Ethics Board provides oversight of the company's AI development and works to ensure that the company's AI products are fair, explainable, and transparent. Similarly, Google's AI Principles include a commitment to avoiding bias in their AI products, as well as a commitment to accountability.
 
