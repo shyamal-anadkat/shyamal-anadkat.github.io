@@ -8,9 +8,8 @@ tags:
 ---
 
 
-<img src="https://i.ibb.co/swrMXxD/frontiers.png" alt="frontiers" border="0">
-
-Illustration: Shyamal × DALL·E
+<img src="https://media.licdn.com/dms/image/D4D12AQGXKg-Ajsn_-g/article-cover_image-shrink_423_752/0/1685555726204?e=1691020800&v=beta&t=YUpkqrqqouJMTHpVJJxZAXvhL7KsYhCQGovDl3zD3qw" alt="frontiers">
+_Illustration: Shyamal × DALL·E_
 
 The past year has been both wild and very empowering. Wild because of an apparent fast take off in AI, and empowering because of lots of love for language user interfaces and support from the community to embrace human-AI co-creation. ChatGPT has given many people the same tingling feeling they experienced when playing for the first time with a PC back in the day. Heard from my friends, “they felt like kids visiting a park for the first time; trying new things, and jumping to the next ride as soon as done with one”. AI has done more good so far and we better understand the stakes and seriousness of misalignment. 2022/3 has been a key milestone in building the future for humanity, with humanity. ChatGPT has become a necessity, and AI, plus all the adjacent vectors supporting it, have become a critical component in developing society and systems. Foundational models are getting multi-modal, more capable, aligned, and safer – gpt4 being the most complex software humanity has likely produced. Technology is pushing the boundaries to simplify the underlying complexities of the world as we understand the perplexity of the internet and how humans reason and think. As traditional software was eating the world, AI, particularly generative AI, is eating software, driving a new wave of innovation reshaping the way we interact with technology, and redefining the nature of creativity and intelligence. AI is not only a disruptive, frontier technology; it’s a utility everyone wants and one we must harness, channel, and build guardrails around. It’s important to call out that AI is incredibly exciting, and its potential seems boundless. But we can't lose sight of the risks of AI alignment. We all have a part to play in ensuring this technology reflects our shared values and ethics. It's a thrilling journey, but safety must be a non-negotiable priority.
 
@@ -59,8 +58,8 @@ Similar assistant & copilot-like interaction paradigms are being built across co
 
 The current year's AI 50 roster (visualized by [Sequoia](https://www.sequoiacap.com/article/ai-50-2023/)) below is just a glimpse into these verticals and the future of work.
 
-<img src="[https://i.ibb.co/swrMXxD/frontiers.png](https://i.ibb.co/nQL8B1P/sqai50.png)" alt="This year AI’s 50 list, visualized by Sequoia" border="0">
-This year AI’s 50 list, visualized by Sequoia
+<img src="https://media.licdn.com/dms/image/D4D12AQEA_nJUsHxUfw/article-inline_image-shrink_1000_1488/0/1685555884000?e=1691020800&v=beta&t=HknahYXFBujUVaPYM29v6zq91bPZiV5RhjMPUJ6vSGI" alt="This year AI’s 50 list, visualized by Sequoia">
+_This year AI’s 50 list, visualized by Sequoia_
 
 ## **AI-IMPACT Framework for Builders**
 
