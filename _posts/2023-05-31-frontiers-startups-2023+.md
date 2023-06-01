@@ -8,7 +8,7 @@ tags:
 ---
 
 
-![alt_text](images/image1.png "image_tooltip")
+![alt_text](assets/img/frontiers.png "Illustration: Shyamal × DALL·E")
 
 Illustration: Shyamal × DALL·E
 
@@ -69,11 +69,7 @@ Similar assistant & copilot-like interaction paradigms are being built across co
 The current year's AI 50 roster (visualized by [Sequoia](https://www.sequoiacap.com/article/ai-50-2023/)) below is just a glimpse into these verticals and the future of work.
 
 
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
-
+![alt_text](assets/img/sqai50.png "This year AI’s 50 list, visualized by Sequoia")
 
 This year AI’s 50 list, visualized by Sequoia
 
