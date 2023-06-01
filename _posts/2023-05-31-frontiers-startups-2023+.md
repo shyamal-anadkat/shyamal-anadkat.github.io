@@ -8,7 +8,7 @@ tags:
 ---
 
 
-![alt_text](frontiers.png "Illustration: Shyamal × DALL·E")
+<img src="https://i.ibb.co/swrMXxD/frontiers.png" alt="frontiers" border="0">
 
 Illustration: Shyamal × DALL·E
 
@@ -16,18 +16,15 @@ The past year has been both wild and very empowering. Wild because of an apparen
 
 Let’s explore some developments that have been made across some key verticals and the factors that determine the success of startups in this space. Note that it’s hard to predict far ahead as these are still early days, so please approach any extrapolations in this write-up with caution.
 
-
 ## **New Interaction Paradigms and Capabilities**
 
 One of the most significant developments in AI is the emergence of new interaction paradigms & capabilities which have given rise to “co-pilot for x” like projects such as AI x lawyers, AI x tutors, AI x under-writers, AI x coaches, and so on. Numerous teams across the globe are pursuing these moonshot ideas, and it is only a matter of time before some of these names become household staples. The most useful generative AI applications have been in areas where validating a produced artifact's accuracy, quality, and completeness requires significantly less time and effort than initially creating it. Take, for example, the case of an accountant who can verify a personal tax return in a fraction of the time it would require to create one from scratch. Over time, that distribution may shift in the other direction (it will get harder for us to verify AI-generated artifacts, including new scientific research).
-
 
 ### **AI-native vs AI-enabled**
 
 As our hierarchy of needs progressed, so have the abstractions of technology that aim to simplify. AI-enabled experiences are bringing AI to people’s existing workflows and tools. Meanwhile, AI-native startups are thinking from AI-first principles and redefining interaction with every software with natural language, focusing on the job to be done without having the user worry about the underlying complexity of working with specific tools and UIs. Language is the highest level of abstraction and likely the most efficient way we can communicate with humans and machines – at least, until we figure out neural interfaces. 
 
 We’d love to wake up to a friendly assistant who can experience the world as we do, help us achieve our goals, plan our day, automate knowledge work, supercharge businesses, help humans figure out cancer and space exploration, amplify our strengths, and generally make us happier. ChatGPT and the plugins paradigm, one of the few disruptive technologies that have helped lift humanity at scale, exemplifies this trend. These technologies continue to push the boundaries of what we can achieve, acting as a force multiplier for various creative and reasoning tasks. Plus, enhancing our abilities to learn, communicate, and create will have a transformative impact on how we live and work. The application layer is shaping up to automate highly repetitive tasks and/or supercharge humans-in-the-loop, and B2B startups are working on bringing AI to business workflows with differentiated UX and natural language interfaces and new ways to work with unstructured data at scale. As the space matures, we are witnessing the adoption of AI-enabled products like [NotionAI](https://www.notion.so/product/ai), which involve integrating foundational models into existing workflows and products, and AI-native platforms like [Descript](https://www.descript.com/), which is reimagining video-editing & content creation with AI-first principles. AI-based personal assistants are simplifying the interaction layer for consumers, enabling them to accomplish objective-driven tasks with natural language. The value of AI lies not only in its ability to generate better quality content but also in its capacity to distill and reduce the overload of diluted information. By extracting meaningful signals from the noise, AI consequently becomes indispensable.
-
 
 ## **Foundations, Infrastructure, and Tooling**
 
@@ -36,7 +33,6 @@ At the infra and tooling layer, we’re seeing a stack emerge - new primitives a
 Just as semiconductor chips have journeyed to commoditization, foundational models (OpenAI, Anthropic, etc.) are now on a similar path. Today's cutting-edge LLMs quickly become tomorrow's standard due to the relentless pace of innovation, shifting the value focus from mere possession to unique applications, customizations, and integrations. Thus, competitiveness stems not from technological access but from innovation and application. Both open-source and proprietary LLMs have a role to play in this evolving paradigm, with businesses faced with choices based on their unique balance of trade-offs, including security, safety, licensing, fine-tuning, performance, cost, latency, and capabilities. Open-source foundation models will probably be at least a couple of generations behind primarily due to compute, capital, data, and alignment progress - but they will be a critical part of several business workflows for which they’re effective. Efforts to train smaller models on more data have shown promise, outperforming larger models in some benchmarks. Moreover, the goal to make such models more accessible has seen some success, with models like Meta's LLaMa and Stanford's Alpaca being available for researchers and even hobbyists to train and run their models. Overall, for builders leveraging generative AI models, the focus should be on domain specialization and building products users love, not the underlying technology. 
 
 Bridging the gap between foundational models and their real-world applications, edge computing emerges as a potent platform for deploying these models, driving AI innovation to new frontiers. Earlier this year, Qualcomm AI Research successfully deployed a popular 1B+ parameter foundation model (stable diffusion) on an edge device through full-stack AI optimization. Edge AI is becoming essential due to its capability for real-time data processing, improved privacy, and enhanced security. It is becoming increasingly significant across various verticals due to the proliferation of devices with numerous sensors producing vast amounts of data. The complexity and resource demands of foundational models pose deployment challenges on edge devices. To counter this, the focus will shift toward specialized hardware, optimization techniques, and neural processor architectures. Being able to run optimized versions of foundational models at the edge/on-device will open up endless possibilities. Recognizing these emerging requirements, [BrainChip](https://brainchip.com/) has stepped forward with innovative solutions like the Akida processor, an advanced neural processing system for edge AI. It’s important to understand and assess edge AI technology to overcome deployment challenges and explore new potentials.
-
 
 ## **Applications, Impact, and Verticals**
 
@@ -54,8 +50,6 @@ We’re also re-inventing how software engineering is done and re-defining & sup
 
 Similar assistant & copilot-like interaction paradigms are being built across content generation, gaming, shopping, travel, finance, consumer packaged goods, healthcare, customer service, language learning verticals, and so on. To mention a few that come to mind (in no way necessarily the best in their class):
 
-
-
 * [Jasper](https://www.jasper.ai/) is now exploring a B2B and platform play, building an intelligence layer for writing assistants that businesses can use. 
 * In travel, [Navan](https://www.forbes.com/sites/johanmoreno/2023/05/05/navan-is-leveraging-generative-ai-to-help-companies-cut-costs/?sh=5042a5946b72) has integrated OpenAI and ChatGPT across their product set, using Ava, their virtual assistant, to personalize recommendations and increase traveler engagement. 
 * In language learning, [Quazel](https://www.quazel.com/) is using LLMs, and betting on practicing speaking regularly, as the easiest way to learn a new language. Similarly, [Speak](https://www.speak.com/) has developed a collection of content experiences that allow learners to practice conversing in English, modeling everyday scenarios and interactions. 
@@ -65,11 +59,8 @@ Similar assistant & copilot-like interaction paradigms are being built across co
 
 The current year's AI 50 roster (visualized by [Sequoia](https://www.sequoiacap.com/article/ai-50-2023/)) below is just a glimpse into these verticals and the future of work.
 
-
-![alt_text](sqai50.png "This year AI’s 50 list, visualized by Sequoia")
-
+<img src="[https://i.ibb.co/swrMXxD/frontiers.png](https://i.ibb.co/nQL8B1P/sqai50.png)" alt="This year AI’s 50 list, visualized by Sequoia" border="0">
 This year AI’s 50 list, visualized by Sequoia
-
 
 ## **AI-IMPACT Framework for Builders**
 
@@ -89,13 +80,11 @@ As the doubts about creating a moat with LLM providers fade, we recognize that t
 
 7/ Technology Convergence: Leverage the convergence of technologies like AI, VR, quantum, and edge computing, etc., for building artifacts that push boundaries of what’s capable & build human-centric solutions that resonate with users, driving meaningful change across industries.
 
-
 ## **Opportunities for startups**
 
 By understanding customer problems, shifting user behaviors, and maintaining a sharp focus on long-term vision, startups can harness the power of this new electricity to reshape the world and benefit humanity. The future TAMs are huge, with many ways to win if you lean into the fight with an authentic voice. High-performing startups with lean, efficient teams with a sharp focus and commitment to a clear vision have higher odds of winning. The best founders and teams I’ve worked with are deeply passionate about the problem, possess high EQ, don’t unknowingly act based on their associations + possess system 2 thinking, are agile, and are comfortable making big, long-term bets - thinking in decades, not days. We should be encouraged to work on ideas where the potential upside is way bigger than the perceived true downside; prefer winning over gambling to avoid losses. 
 
 The internet brought more value to startups than incumbents (Amazon vs bookstores), mobile shift created new biz for incumbents, so it wasn’t big of a shift, but I believe with the pace of change with AI, there’s a prime opportunity for startups to disrupt incumbents for the first time in decades - largely due to capabilities, new interaction paradigms, and shifting user behaviors. Every AI person I know is beyond excited and is in “building mode”. Buckle up for startups++. We are talking about non-trivial GDP growth, enough to fuel universal basic income and lift humanity, protecting our fundamental rights, improving our lifespans, and making us happier and more fulfilled.
-
 
 ---
 
