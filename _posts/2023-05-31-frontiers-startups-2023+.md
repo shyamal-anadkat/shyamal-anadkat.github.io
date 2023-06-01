@@ -8,12 +8,9 @@ tags:
 ---
 
 
-![alt_text](assets/img/frontiers.png "Illustration: Shyamal × DALL·E")
+![alt_text](frontiers.png "Illustration: Shyamal × DALL·E")
 
 Illustration: Shyamal × DALL·E
-
-
-# **frontiers, startups, 2023++**
 
 The past year has been both wild and very empowering. Wild because of an apparent fast take off in AI, and empowering because of lots of love for language user interfaces and support from the community to embrace human-AI co-creation. ChatGPT has given many people the same tingling feeling they experienced when playing for the first time with a PC back in the day. Heard from my friends, “they felt like kids visiting a park for the first time; trying new things, and jumping to the next ride as soon as done with one”. AI has done more good so far and we better understand the stakes and seriousness of misalignment. 2022/3 has been a key milestone in building the future for humanity, with humanity. ChatGPT has become a necessity, and AI, plus all the adjacent vectors supporting it, have become a critical component in developing society and systems. Foundational models are getting multi-modal, more capable, aligned, and safer – gpt4 being the most complex software humanity has likely produced. Technology is pushing the boundaries to simplify the underlying complexities of the world as we understand the perplexity of the internet and how humans reason and think. As traditional software was eating the world, AI, particularly generative AI, is eating software, driving a new wave of innovation reshaping the way we interact with technology, and redefining the nature of creativity and intelligence. AI is not only a disruptive, frontier technology; it’s a utility everyone wants and one we must harness, channel, and build guardrails around. It’s important to call out that AI is incredibly exciting, and its potential seems boundless. But we can't lose sight of the risks of AI alignment. We all have a part to play in ensuring this technology reflects our shared values and ethics. It's a thrilling journey, but safety must be a non-negotiable priority.
 
@@ -25,7 +22,7 @@ Let’s explore some developments that have been made across some key verticals 
 One of the most significant developments in AI is the emergence of new interaction paradigms & capabilities which have given rise to “co-pilot for x” like projects such as AI x lawyers, AI x tutors, AI x under-writers, AI x coaches, and so on. Numerous teams across the globe are pursuing these moonshot ideas, and it is only a matter of time before some of these names become household staples. The most useful generative AI applications have been in areas where validating a produced artifact's accuracy, quality, and completeness requires significantly less time and effort than initially creating it. Take, for example, the case of an accountant who can verify a personal tax return in a fraction of the time it would require to create one from scratch. Over time, that distribution may shift in the other direction (it will get harder for us to verify AI-generated artifacts, including new scientific research).
 
 
-### **AI-native vs AI-enabled **
+### **AI-native vs AI-enabled**
 
 As our hierarchy of needs progressed, so have the abstractions of technology that aim to simplify. AI-enabled experiences are bringing AI to people’s existing workflows and tools. Meanwhile, AI-native startups are thinking from AI-first principles and redefining interaction with every software with natural language, focusing on the job to be done without having the user worry about the underlying complexity of working with specific tools and UIs. Language is the highest level of abstraction and likely the most efficient way we can communicate with humans and machines – at least, until we figure out neural interfaces. 
 
@@ -69,7 +66,7 @@ Similar assistant & copilot-like interaction paradigms are being built across co
 The current year's AI 50 roster (visualized by [Sequoia](https://www.sequoiacap.com/article/ai-50-2023/)) below is just a glimpse into these verticals and the future of work.
 
 
-![alt_text](assets/img/sqai50.png "This year AI’s 50 list, visualized by Sequoia")
+![alt_text](sqai50.png "This year AI’s 50 list, visualized by Sequoia")
 
 This year AI’s 50 list, visualized by Sequoia
 
