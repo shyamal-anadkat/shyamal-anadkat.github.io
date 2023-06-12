@@ -1,0 +1,37 @@
+---
+layout: post
+title: "Practical Strategies to Reduce Hallucinations in Large Language Models"
+tags:
+- Hallucinations
+- AI
+- Large Language Models
+---
+Let's first understand what hallucinations (aka "fabricated information") are in the context of large language models and why they happen. During the training process of large language models/GPTs, the model predicts the next token in a sequence based on the context provided by previous tokens. This is essentially done by maximizing the likelihood of generating the observed data using the model's parameters. Despite their impressive performance in various downstream tasks, LLMs sometimes suffer from a phenomenon known as hallucination, where they generate outputs that are factually incorrect or do not make sense in the context, or are not consistent with the real world. This issue arises due to the model's inherent limitations, specifically its inability to recognize when there is no clear and correct answer for a given input. LLMs somewhat "compress" an underlying representation of the world, which can be lossy during sampling or extraction. This can improve the model's creativity and ability to explore new outcomes, but it can also make it challenging to extract knowledge as is - an inherent tradeoff between the models' creativity and factualness. As the model becomes more creative, leaning towards generating a series of low-likelihood tokens, the chances of it deviating from the true underlying distribution increase. Additionally, there is the "data freshness problem" due to the training cutoff, which limits the model's ability to answer questions about recent events or knowledge outside of its training data distribution. The goal of this post is to outline some overall strategies (which can highly vary depending on the type of task you’re trying to achieve) that can help reduce hallucinations. Hope this gives you an overall framework and a few things to try out.
+
+1. **Use the model to verify or discriminate against its own generations.** This can be implemented with prompt chaining or a separate LLM layer for additional fact-checking. There are a couple of approaches that can work here:
+   * Recursive calls to the LLM to refine or improve its output until a relevant outcome is obtained.
+   * Using subsequent calls to LLM to calibrate the accuracy or relevance of its own answer can help filter out results that are potentially unfaithful.
+
+2. **Providing more relevant context + experimenting with prompt-tuning:**
+   1. Hallucinations often occur when an LLM is given more room to interpret a prompt or there is room for ambiguity. By providing more context, you limit the possibilities for outcomes, driving the model toward what you are looking for and generating more accurate and relevant results.
+   2. Additionally, instructing the model to refuse an answer if it is not confident. For example, by prompting it with: “Answer the question as truthfully as possible, and if you are not sure, respond with 'Sorry, I do not know the answer to the question.”
+   3. Use temperature=0. Controlling the temperature can help reduce the randomness of the sampled tokens or generated output and make them more predictable.
+   4. If you have not already, switch to gpt4 or better to see if that helps reduce hallucinations. In addition, for eg. using gpt4 to discriminate against or fact-check gpt3's output can help reduce hallucinations.
+   5. If possible, leverage existing uncertainty metrics such as token probability/logprobs or entropy as these measures can help determine the parts of the sampled tokens the LLM is least certain of.
+   6. Evaluate your implementation across a diverse set of tasks that resemble the real-world distribution for your use case (for example, by writing [evals](https://github.com/openai/evals)) to understand the % of hallucination you should expect at test time and keep iterating/experimenting with different approaches to make improvements. You cannot improve what you cannot measure or do not completely understand the limits of.
+
+3. **Enrich the LLM with external knowledge or tools.**
+   1. Retrieval augmented generation techniques: This allows us to retrieve relevant information from its vector store or retrieval knowledge base at inference time and feed that information back to the model as part of its context. Additionally, asking the model to return sources from the relevant context constrains the model to only consider the relevant information. In addition to this, instructing the model to "only answer from context," "do not makeup answers," or "do xx if you are unsure" helps steer the model better.
+   2. Integrate the LLM with external tools/APIs/actions to help perform additional computations. Example: integrate with weather API to retrieve the average precipitation in California in 2020 instead of prompting it directly in context.
+   3. Enrich the LLM with a set of principles around what constitutes the truth under some context, give it a way to reason, and then give it access to tools/external knowledge it can use to verify/validate/support its answers.
+
+4. **Along with retrieval augmented generation techniques, incorporating external references to support claims/asking the LLM to cite sources helps reduce fabrication and contradictory claims.** However, evaluating the attribution is still a challenge. To help evaluate attribution you can either (1) generate scores indicating the degree of entailment between reference & query answers, or (2) as presented in this [paper](https://arxiv.org/pdf/2305.06311.pdf), explore prompting LLMs and fine-tuning smaller LMs to devise automatic attribution evaluation (the paper discusses a custom metric called “AttributionScore” which measures how attributable a model’s generation is to its reference(s)).
+
+5. **Give the model room to think and reason.** A useful tactic to improve the model's ability to tackle complex tasks and reduce hallucinations is to first ask the model to reason about a problem and then ask it to derive the answer; explainibility and reasoning will work in your favor. Some strategies under this umbrella include:
+   * Chain of thought prompting - simply adding "let's think step by step" to the prompt can help the model reason about a complex task and improve overall accuracy.
+   * Self-consistency methods - involve checking the output of the model against previous outputs to ensure consistency and reduce the likelihood of hallucinations.
+   * To mitigate self-contradictions, as outlined in this [paper](https://arxiv.org/pdf/2305.15852.pdf), you can use chain-of-thought-like prompting techniques to self-identify self-contradictions over the sampled tokens/output and then iteratively make edits to remove contradictions while maintaining the overall consistency of the generated output.
+   * Explore techniques like [SelfCheckGPT](https://arxiv.org/pdf/2303.08896.pdf) which assess a language model's concept understanding by generating multiple responses; consistent responses suggest good knowledge, while inconsistencies hint at made-up facts, helping to gauge the LLM's factual accuracy.
+   * To prevent [hallucination snowballing](https://arxiv.org/pdf/2305.13534.pdf), prefer the model to first acknowledge the mistake before revising its answer towards truthfulness.
+
+Note: this is by no means a comprehensive list. I’ll try to keep this list updated with recent/more effective strategies to combat hallucinations; please DM me if you have suggestions for other approaches that we can add to.
