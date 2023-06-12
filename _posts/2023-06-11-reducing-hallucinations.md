@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Practical Strategies to Reduce Hallucinations in Large Language Models"
+title: "Reducing Large Language Model Hallucinations: Practical Tactics"
 tags:
 - Hallucinations
 - AI
@@ -13,17 +13,17 @@ Let's first understand what hallucinations (aka "fabricated information") are in
    * Using subsequent calls to LLM to calibrate the accuracy or relevance of its own answer can help filter out results that are potentially unfaithful.
 
 2. **Providing more relevant context + experimenting with prompt-tuning:**
-   1. Hallucinations often occur when an LLM is given more room to interpret a prompt or there is room for ambiguity. By providing more context, you limit the possibilities for outcomes, driving the model toward what you are looking for and generating more accurate and relevant results.
-   2. Additionally, instructing the model to refuse an answer if it is not confident. For example, by prompting it with: “Answer the question as truthfully as possible, and if you are not sure, respond with 'Sorry, I do not know the answer to the question.”
-   3. Use temperature=0. Controlling the temperature can help reduce the randomness of the sampled tokens or generated output and make them more predictable.
-   4. If you have not already, switch to gpt4 or better to see if that helps reduce hallucinations. In addition, for eg. using gpt4 to discriminate against or fact-check gpt3's output can help reduce hallucinations.
-   5. If possible, leverage existing uncertainty metrics such as token probability/logprobs or entropy as these measures can help determine the parts of the sampled tokens the LLM is least certain of.
-   6. Evaluate your implementation across a diverse set of tasks that resemble the real-world distribution for your use case (for example, by writing [evals](https://github.com/openai/evals)) to understand the % of hallucination you should expect at test time and keep iterating/experimenting with different approaches to make improvements. You cannot improve what you cannot measure or do not completely understand the limits of.
+   * Hallucinations often occur when an LLM is given more room to interpret a prompt or there is room for ambiguity. By providing more context, you limit the possibilities for outcomes, driving the model toward what you are looking for and generating more accurate and relevant results.
+   * Additionally, instructing the model to refuse an answer if it is not confident. For example, by prompting it with: “Answer the question as truthfully as possible, and if you are not sure, respond with 'Sorry, I do not know the answer to the question.”
+   * Use temperature=0. Controlling the temperature can help reduce the randomness of the sampled tokens or generated output and make them more predictable.
+   * If you have not already, switch to gpt4 or better to see if that helps reduce hallucinations. In addition, for eg. using gpt4 to discriminate against or fact-check gpt3's output can help reduce hallucinations.
+   * If possible, leverage existing uncertainty metrics such as token probability/logprobs or entropy as these measures can help determine the parts of the sampled tokens the LLM is least certain of.
+   * Evaluate your implementation across a diverse set of tasks that resemble the real-world distribution for your use case (for example, by writing [evals](https://github.com/openai/evals)) to understand the % of hallucination you should expect at test time and keep iterating/experimenting with different approaches to make improvements. You cannot improve what you cannot measure or do not completely understand the limits of.
 
 3. **Enrich the LLM with external knowledge or tools.**
-   1. Retrieval augmented generation techniques: This allows us to retrieve relevant information from its vector store or retrieval knowledge base at inference time and feed that information back to the model as part of its context. Additionally, asking the model to return sources from the relevant context constrains the model to only consider the relevant information. In addition to this, instructing the model to "only answer from context," "do not makeup answers," or "do xx if you are unsure" helps steer the model better.
-   2. Integrate the LLM with external tools/APIs/actions to help perform additional computations. Example: integrate with weather API to retrieve the average precipitation in California in 2020 instead of prompting it directly in context.
-   3. Enrich the LLM with a set of principles around what constitutes the truth under some context, give it a way to reason, and then give it access to tools/external knowledge it can use to verify/validate/support its answers.
+   * Retrieval augmented generation techniques: This allows us to retrieve relevant information from its vector store or retrieval knowledge base at inference time and feed that information back to the model as part of its context. Additionally, asking the model to return sources from the relevant context constrains the model to only consider the relevant information. In addition to this, instructing the model to "only answer from context," "do not makeup answers," or "do xx if you are unsure" helps steer the model better.
+   * Integrate the LLM with external tools/APIs/actions to help perform additional computations. Example: integrate with weather API to retrieve the average precipitation in California in 2020 instead of prompting it directly in context.
+   * Enrich the LLM with a set of principles around what constitutes the truth under some context, give it a way to reason, and then give it access to tools/external knowledge it can use to verify/validate/support its answers.
 
 4. **Along with retrieval augmented generation techniques, incorporating external references to support claims/asking the LLM to cite sources helps reduce fabrication and contradictory claims.** However, evaluating the attribution is still a challenge. To help evaluate attribution you can either (1) generate scores indicating the degree of entailment between reference & query answers, or (2) as presented in this [paper](https://arxiv.org/pdf/2305.06311.pdf), explore prompting LLMs and fine-tuning smaller LMs to devise automatic attribution evaluation (the paper discusses a custom metric called “AttributionScore” which measures how attributable a model’s generation is to its reference(s)).
 
