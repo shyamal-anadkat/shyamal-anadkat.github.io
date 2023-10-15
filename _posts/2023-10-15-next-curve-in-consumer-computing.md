@@ -64,7 +64,7 @@ As immersive computing pioneer Jaron Lanier has noted, one risk of extended real
 
 Therefore, as we embrace new capacities, we must also cultivate mindfulness about how we integrate these technologies into our lives. Hardware design will need to strike the right balance between functionality, aesthetics, and sustainability. Finding an equilibrium between humanity and consumer technology is critical for all innovations.
 
-The coming shift away from medium-invasive devices to minimalist and immersive extremes has parallels to the demise of the PDA after the smartphone's rise. It will mark the next chapter in the commodification of computing power and redefine society's relationship to consumer technology. But by focusing first on human needs and second on technological means, we can ensure this coming curve bends towards empowering our lives while respecting human exceptionalism. The future remains unwritten, and it is up to us to shape it wisely.
+The coming shift away from medium-invasive devices to minimalist and immersive extremes has parallels to the demise of the PDA after the smartphone's rise. It will mark the next chapter in the commodification of computing power and redefine society's relationship to consumer technology. But by focusing first on human needs and second on technological means, we can ensure this coming curve bends towards empowering our lives while respecting human exceptionalism. Let's build. 
 
 _If you’re building in this space, I’d love to chat. Drop me a message at shyamalanadkat@gmail.com_
 
