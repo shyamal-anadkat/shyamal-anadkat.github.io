@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Thoughts on human-AI interaction..."
+title: "human-AI interaction"
 tags:
 - Thoughts
 - AI
