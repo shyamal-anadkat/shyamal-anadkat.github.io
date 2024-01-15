@@ -2,9 +2,9 @@ remote_theme: pages-themes/minimal@v0.2.0
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 - jekyll-seo-tag
-title: Shyamal's Space
+title: shyamal's space
 author: Shyamal Anadkat
-author_email: sha18@duke.edu
+author_email: shyamalanadkat@gmail.com
 logo: assets/img/logo.png
 github_username:  shyamal-anadkat
 linkedin_username: zostale
