@@ -9,7 +9,7 @@ tags:
 - AGI
 ---
 
-<img src="https://ibb.co/yf0sgNn" alt="frontiers">
+![frontiers](https://i.ibb.co/yf0sgNn/frontiers.jpg)
 _Illustration: Shyamal × DALL·E_
 
 At the time of writing this,[ gpt-4](https://openai.com/research/gpt-4) marked its first anniversary. Simultaneously, the world witnessed the demo of the[ first AI software engineer](https://www.cognition-labs.com/) by[ Cognition Labs](https://www.cognition-labs.com/). It was incredible to see. I'm genuinely humbled by gpt-4's impact - how it shifted worldviews and landscapes, sparking new opportunities for developers, startups, students, and economies globally while driving critical progress on AI alignment and safety. We realized intelligence is almost an emergent property of matter. Language models have become more intelligent, multi-modal, faster, fine-tunable, interpretable, open-source, safer, and in some cases, well, _meme-worthy_. In less than two years, we've gone from the days of 4k context-length to 1M context-length LLMs. Deep learning advancements are not slowing down anytime soon, and scaling laws continue to hold. The neural architecture + model capabilities might just be good enough to help us evolve from the AI assistants/copilots that helped us write some working code and summarize email drafts to the ones doing the tasks that probably take us 10 minutes or longer - like updating your website, completing a driver's license application, or drafting your tax returns.
