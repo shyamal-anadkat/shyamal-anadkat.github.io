@@ -42,7 +42,7 @@ If your AI tool could reshape economies, think now about its social impact. Bett
 XI. Find believers, not just investors.
 You need backers who understand what a ten-year slog means. Someone who knows that building quantum computers isn’t just another web app—and who’s patient.
 
-XII. Build networks of weirdos.
+XII. Build networks of "talent-dense" colleagues.
 Collaborate with physicists, chemists, roboticists, philosophers. Deep tech thrives at the edges where disciplines blur and fresh sparks fly.
 
 XIII. Lead from the lab floor.
