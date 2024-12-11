@@ -7,62 +7,48 @@ tags:
 - Deep tech
 - AGI
 ---
-The 'deep' in deep tech is a reminder of the technical risk and uncharted territory we must traverse.
+The ‘deep’ in deep tech signals something more than just complexity. It’s about going places no one knows how to go yet.
 
-I. Think big, begin small.
+I. Think big, start small.
+You have to imagine a future that seems crazy now. But start with the smallest workable piece—build a prototype in your garage, solve one sub-problem clearly and concretely.
 
-Dream and plan for a future that may seem improbable, to think boldly and unrestrictively about possibilities. However, recognize that the path to greatness begins with the first step.
+II. Begin at first principles.
+Forget the prepackaged assumptions. Ask: what’s actually true? If you’re building new chips, don’t just tweak current designs—reimagine them from the basic laws of physics.
 
-II. Focus on first principles.
+III. Build like no one’s built before.
+Incremental improvements won’t cut it. If you’re aiming for a fusion breakthrough, don’t just run a bigger version of the old reactor—try a configuration that doesn’t even fit our current vocabulary.
 
-Re-examine assumptions, and understand the fundamental truths. Consider problems from first principles, striving to deconstruct complex issues into their most basic elements.
+IV. Monopoly as mission.
+Real impact means you own your domain. If you solve a hard enough problem—creating cheap carbon capture, say—you won’t have serious competition. That’s what you want.
 
-III. Build differently and durably.
+V. Think in decades.
+Deep tech doesn’t follow normal startup timelines. You might need 5 years just to get a working demo of your biotech process, and 15 more to scale it. That’s fine.
 
-Incremental improvements may not be sufficient. Deep tech often demands a shift paradigms, challenging the status quo and building from the ground up.
+VI. No breakthroughs, no business.
+You’re not just rearranging known solutions. You need a genuine scientific or engineering leap: a new material, a new algorithm, a new manufacturing process.
 
-IV. Monopoly For mission.
+VII. Solve real problems.
+Deep tech is not about tech for tech’s sake. If your new polymer can purify water at scale, show how it helps millions access clean water.
 
-As you aim for the big problems, remember that the only sustainable business is a monopoly. Competition is for losers. Build for dominance in domains neglected or unfathomed.
+VIII. Get good at uncertainty.
+Your path will be guesswork plus rigorous testing. Most attempts fail. But if you learn from these failures, the one success could change an industry.
 
-V. Long-term vision and thinking in decades.
+IX. Cultivate a learning culture.
+You want polymaths who read physics papers for fun and learn new fields like others learn new languages. Make “I don’t know, but let’s find out” your team motto.
 
-In deep tech, our timelines stretch beyond the immediate horizons of traditional tech cycles.be prepared for the long haul, expecting 5, 10, 20-year journeys.
+X. Act with moral awareness.
+If your AI tool could reshape economies, think now about its social impact. Better to build responsibly than regret later what you unleashed.
 
-VI. No substitute for technological and research breakthrough.
+XI. Find believers, not just investors.
+You need backers who understand what a ten-year slog means. Someone who knows that building quantum computers isn’t just another web app—and who’s patient.
 
-Gains in deep tech are rooted in actual advances in science and engineering. There is no substitute for 'hard' technology.
+XII. Build networks of weirdos.
+Collaborate with physicists, chemists, roboticists, philosophers. Deep tech thrives at the edges where disciplines blur and fresh sparks fly.
 
-VII. Build to solve.
+XIII. Lead from the lab floor.
+If you’re the founder, understand your technology down to the math and materials. Don’t just read reports—tinker, ask dumb questions, redesign experiments yourself.
 
-Identify real, pressing problems, and provide viable, scalable, and practical solutions. Technology is a means, not an end.
+XIV. Remember what it’s for.
+You’re here to improve human life. Maybe you’re making solar power cheaper, curing a disease, or unlocking space travel. Keep that at the center.
 
-VIII. Resilience through uncertainty.
-
-Given the high risk and uncertainty inherent in deep tech, cultivate a culture of resilience. Failure may be more frequent, but the successes have exponential impact.
-
-IX. Build a learning organization.
-
-Foster a team that values continual learning, curiosity, and knowledge across domains.
-
-X. Ethics and responsibility.
-
-Be acutely mindful of the societal impact of your technologies. Act ethically, with a long-term sense of responsibility.
-
-XI. Funding From visionaries.
-
-Seek funding from those who understand the uniqueness and timescales of deep tech, and who invest in fundamental innovation.
-
-XII. Network and collaborate.
-
-Deep tech requires cross-pollination of ideas across disciplines. Build collaboration and connection with academia, industry, and governments.
-
-XIII. Hands-on leadership.
-
-Be in the trenches. Understand the technology, and be involved in the key decisions.
-
-XIV. Remember humanity.
-
-Your purpose is to advance human progress, to solve Earth's pressing problems, and to expand the reach of human civilization.
-
-Deep tech is perhaps the most challenging and rewarding endeavor in modern times. Let's extend this blueprint as an invitation to embrace this journey with courage, vision, and resolve.
+Deep tech isn’t just hard—it’s uncertain, slow, and (at first) looks impossible. But that’s why it matters. With courage and a clear mind, you can do work that will define an era.
