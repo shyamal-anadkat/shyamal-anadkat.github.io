@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mission-driven hiring"
+title: "mission-driven hiring"
 tags:
 - Startups
 - Hiring
