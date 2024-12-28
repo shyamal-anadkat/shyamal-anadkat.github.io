@@ -18,10 +18,6 @@ layout: default
 
 <br/><br/><br/><br/>
 <!-- add the button! -->
-<script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=pt_e8b43a7181ccee823728489fc4a8c7"></script>
 
-<div 
-  data-lyket-type="like" 
-  data-lyket-id="{{ page.url | absolute_url }}" 
-  data-lyket-namespace="namespace">
-</div>
+<div data-lyket-type="like" data-lyket-id="{{ page.title | slugify }}"></div>
+
