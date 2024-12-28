@@ -18,4 +18,10 @@ layout: default
 
 <br/><br/><br/><br/>
 <!-- add the button! -->
-<applause-button url='shyamal.me{{ page.url }}' color="gray" style="width: 58px; height: 58px;"/>
+<script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=pt_e8b43a7181ccee823728489fc4a8c7"></script>
+
+<div 
+  data-lyket-type="like" 
+  data-lyket-id="{{ page.url | absolute_url }}" 
+  data-lyket-namespace="namespace">
+</div>
