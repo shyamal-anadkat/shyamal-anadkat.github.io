@@ -3,10 +3,9 @@ layout: post
 title: "whispering intelligence"
 tags:
 - Startups
-- AI
+- AGI
 - Hardware
 - Ideas
-- AGI
 ---
 i’ve always been fascinated by how technology narrows the gap between our thoughts and actions. keyboards were a leap forward from pen and paper, but when you really think about it, there’s still so much friction. surely, we can do better.
 
