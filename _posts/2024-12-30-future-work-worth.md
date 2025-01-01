@@ -28,6 +28,6 @@ tags:
 <span style="font-size: small;">
   Acknowledgements: <br>
   * <a href="https://ia.samaltman.com/">Intelligence Age, Sam Altman</a> <br>
-  * <a href="https://x.com/iamnirman/">Nirman Dave</a> for reviewing a draft of this.</span>
+  * <a href="https://x.com/iamnirman/">Nirman Dave</a> for reviewing a draft of this.
 
 
