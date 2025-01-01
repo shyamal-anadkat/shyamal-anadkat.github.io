@@ -20,6 +20,9 @@ tags:
 
 **This transition could be challenging.** We've spent generations telling ourselves that our job title is who we are. But necessity is a powerful force for cultural change. When AGI makes the old model of work redundant, **we'll adapt. We always do.** The key will be ensuring that this adaptation includes new mechanisms for economic participation and dignity, rather than merely accepting a world where capital no longer needs labor in traditional ways. 
 
+<img width="953" alt="image" src="https://github.com/user-attachments/assets/c2a38c26-7668-40b1-9729-f68c36967a35" />
+
+
 <br><br>
 
 <span style="font-size: small;">
