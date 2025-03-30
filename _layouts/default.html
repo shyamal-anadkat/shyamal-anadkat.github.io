@@ -12,6 +12,7 @@
 
     {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/css/theme.css" | relative_url }}">
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -27,6 +28,22 @@
         {% endif %}
 
         <br/><br/><hr><p>{{ site.description | default: site.github.project_tagline }}</p>
+
+        <div class="theme-toggle" style="margin-top:1rem;">
+          <input type="checkbox" id="theme-toggle" class="toggle-checkbox" />
+          <label for="theme-toggle" class="toggle-label">
+            <span class="icon sun-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <circle cx="12" cy="12" r="5"/>
+              </svg>
+            </span>
+            <span class="icon moon-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M21.75 15.5A9 9 0 0 1 8.5 2.25a9 9 0 1 0 13.25 13.25z"/>
+              </svg>
+            </span>
+          </label>
+        </div>
 
 <!--         {% if site.github.is_user_page %}
         <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
@@ -46,5 +63,34 @@
     </div>
     <script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=pt_e8b43a7181ccee823728489fc4a8c7"></script>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script>
+      (function() {
+        var toggleCheckbox = document.getElementById('theme-toggle');
+        var saved = localStorage.getItem('theme');
+
+        function updateToggle() {
+          if(document.body.classList.contains('dark-mode')) {
+            toggleCheckbox.checked = true;
+          } else {
+            toggleCheckbox.checked = false;
+          }
+        }
+
+        if(saved === 'dark') {
+          document.body.classList.add('dark-mode');
+        }
+        updateToggle();
+
+        toggleCheckbox.addEventListener('change', function() {
+          if (toggleCheckbox.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
