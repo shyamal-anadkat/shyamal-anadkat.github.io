@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span, div {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  a {
+    color: #bb86fc;
+    transition: color 0.3s ease;
+  }
+  mark {
+    background-color: #bb86fc;
+    color: #121212;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.dark-mode a {
+  color: #bb86fc;
+  transition: color 0.3s ease;
+}
+body.dark-mode mark {
+  background-color: #bb86fc;
+  color: #121212;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode a {
+  color: #82aaff;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode strong, body.dark-mode b {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode em, body.dark-mode i {
+  color: #e0e0e0;
+  transition: color 0.3s ease;
+}
+
+#theme-toggle {
+  background-color: #333;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background-color: #444;
+  color: #ffffff;
+}
+
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.toggle-checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: background-color 0.4s, box-shadow 0.4s;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.toggle-label::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 2.5px;
+  bottom: 2.5px;
+  background-color: white;
+  transition: transform 0.4s;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.toggle-checkbox:checked + .toggle-label::before {
+  transform: translateX(25px);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  color: #000;
+  transition: color 0.4s;
+}
+
+.toggle-checkbox:checked + .toggle-label .moon-icon {
+  color: #fff;
+}
+
+.toggle-checkbox:checked + .toggle-label .sun-icon {
+  color: #666;
+}
+
+.toggle-label:hover {
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.theme-toggle-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.theme-btn {
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ccc;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .theme-toggle {
+    width: 45px;
+    height: 22px;
+  }
+  .toggle-label::before {
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+  }
+  .toggle-checkbox:checked + .toggle-label::before {
+    transform: translateX(23px);
+  }
+}
