@@ -9,16 +9,16 @@ h1, h2, h3, h4, h5, h6, p, a, span, div {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
+  body:not(.light-mode) {
     background-color: #121212;
     color: #e0e0e0;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
-  a {
+  body:not(.light-mode) a {
     color: #bb86fc;
     transition: color 0.3s ease;
   }
-  mark {
+  body:not(.light-mode) mark {
     background-color: #bb86fc;
     color: #121212;
     transition: background-color 0.3s ease, color 0.3s ease;

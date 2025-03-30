@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ "/sitemap.xml" | relative_url }}" />
 
     <title>{{ page.title | default: site.title }}</title>
@@ -67,26 +68,25 @@
       (function() {
         var toggleCheckbox = document.getElementById('theme-toggle');
         var saved = localStorage.getItem('theme');
-
         function updateToggle() {
-          if(document.body.classList.contains('dark-mode')) {
-            toggleCheckbox.checked = true;
-          } else {
-            toggleCheckbox.checked = false;
-          }
+          toggleCheckbox.checked = document.body.classList.contains('dark-mode');
         }
-
-        if(saved === 'dark') {
+        if (saved === 'dark') {
+          document.body.classList.add('dark-mode');
+        } else if (saved === 'light') {
+          document.body.classList.add('light-mode');
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
           document.body.classList.add('dark-mode');
         }
         updateToggle();
-
         toggleCheckbox.addEventListener('change', function() {
           if (toggleCheckbox.checked) {
             document.body.classList.add('dark-mode');
+            document.body.classList.remove('light-mode');
             localStorage.setItem('theme', 'dark');
           } else {
             document.body.classList.remove('dark-mode');
+            document.body.classList.add('light-mode');
             localStorage.setItem('theme', 'light');
           }
         });
