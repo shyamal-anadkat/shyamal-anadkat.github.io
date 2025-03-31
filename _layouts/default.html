@@ -7,8 +7,7 @@
     <meta name="color-scheme" content="light dark">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ "/sitemap.xml" | relative_url }}" />
 
-    <title>{{ page.title | default: site.title }}</title>
-    <meta name="description" content="{{ page.excerpt | strip_html | default: site.description }}">
+    {% comment %} jekyll-seo-tag outputs standard SEO tags such as title and description {% endcomment %}
     <meta name="robots" content="index, follow">
 
     {% seo %}
