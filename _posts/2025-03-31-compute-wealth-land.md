@@ -3,7 +3,6 @@ layout: post
 title: "Compute is the new land"
 tags:
 - Wealth
-- AI
 - Compute
 - AGI
 - Capital
