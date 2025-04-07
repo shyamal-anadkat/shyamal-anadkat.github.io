@@ -52,6 +52,11 @@ Interesting implementation details
 
 • Social / applause / analytics scripts are kept out of the Markdown posts and injected globally via `_includes`.
 
+• New interactive niceties added (all client‑side, no extra build plugins):  
+  – **Reading‑progress bar** – a 3 px top bar that fills as you scroll; implemented with ~20 lines of JS in `default.html`.  
+  – **Like / dislike (thumbs) widget** – embedded in `post.html` via LikeBtn snippet.  
+  – **Instant search** – a search box in the header backed by a static `search.json` (built at compile‑time) and vanilla JS for filtering; styled in `assets/css/theme.css` to match both light & dark modes.
+
 • Because the repo relies on the GitHub‑hosted theme, the codebase stays very small; only the pieces that differ from the upstream theme live here.
 
 In short  
@@ -62,3 +67,5 @@ The codebase is a minimal Jekyll blog:
 2. `_layouts` + `_includes` tweak the look & add functionality (dark mode, share buttons, GA).  
 3. `assets` holds custom CSS, images, standalone HTML.  
 4. Bundler + Makefile make local development easy; GitHub Pages handles production builds, and a CodeQL action adds basic security scanning.
+
+5. Small, purely client‑side enhancements (progress bar, thumbs reactions, search) add usability without server code or heavy libraries.

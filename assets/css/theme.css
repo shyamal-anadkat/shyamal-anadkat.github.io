@@ -160,6 +160,80 @@ body.dark-mode em, body.dark-mode i {
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
+/* ----------------------------
+   Simple Search box styling
+   --------------------------*/
+
+.search-box {
+  margin-top: 1.5rem;
+  position: relative;
+  max-width: 320px;
+}
+
+.search-box input[type="search"] {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #000;
+}
+
+/* dark mode overrides */
+body.dark-mode .search-box input[type="search"] {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+.search-box ul {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 260px;
+  overflow-y: auto;
+  background: #fff;
+  z-index: 1000;
+}
+
+body.dark-mode .search-box ul {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+.search-box ul:empty {
+  display: none;
+}
+
+.search-box li a {
+  display: block;
+  padding: 0.4rem 0.6rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.search-box li a:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+body.dark-mode .search-box li a:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.search-box li + li {
+  border-top: 1px solid #eee;
+}
+
+body.dark-mode .search-box li + li {
+  border-top: 1px solid #333;
+}
+
 .theme-btn:hover {
   transform: scale(1.1);
 }

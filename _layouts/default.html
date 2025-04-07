@@ -19,6 +19,21 @@
     {% include head-custom.html %}
   </head>
   <body>
+    <!-- Reading progress bar -->
+    <div id="progress-bar"></div>
+    <style>
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        background: var(--accent-color, #ff4081);
+        z-index: 9999;
+        transition: width 0.1s ease-out;
+      }
+    </style>
+
     <div class="wrapper">
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
@@ -45,6 +60,12 @@
           </label>
         </div>
 
+        <!-- Simple search box -->
+        <div class="search-box">
+          <input type="search" id="search-input" placeholder="Search…" autocomplete="off">
+          <ul id="search-results"></ul>
+        </div>
+
 <!--         {% if site.github.is_user_page %}
         <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
         {% endif %} -->
@@ -63,6 +84,68 @@
     </div>
     <script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=pt_e8b43a7181ccee823728489fc4a8c7"></script>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script>
+      (function () {
+        var input = document.getElementById('search-input');
+        if (!input) return;
+        var resultsBox = document.getElementById('search-results');
+        var data;
+
+        function render(list) {
+          if (!resultsBox) return;
+          if (!list.length) { resultsBox.innerHTML = ''; return; }
+          resultsBox.innerHTML = list.map(function (item) {
+            return '<li><a href="' + item.url + '">' + item.title + '</a></li>';
+          }).join('');
+        }
+
+        function search(query) {
+          if (!data) return;
+          query = query.trim().toLowerCase();
+          if (!query) { render([]); return; }
+          var matches = data.filter(function (item) {
+            return item.title.toLowerCase().indexOf(query) !== -1 || item.content.toLowerCase().indexOf(query) !== -1;
+          }).slice(0, 10);
+          render(matches);
+        }
+
+        function init() {
+          fetch('{{ "/search.json" | relative_url }}')
+            .then(function (r) { return r.json(); })
+            .then(function (json) { data = json; search(input.value); });
+        }
+
+        input.addEventListener('focus', function () {
+          if (!data) init();
+        });
+        input.addEventListener('input', function () {
+          if (!data) return; // fetch may still be in-flight
+          search(this.value);
+        });
+        // Hide results when clicking outside
+        document.addEventListener('click', function(e){
+          if(!resultsBox.contains(e.target) && e.target !== input){
+            resultsBox.innerHTML='';
+          }
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        var bar = document.getElementById('progress-bar');
+        if (!bar) return;
+        function update() {
+          var doc = document.documentElement;
+          var scrollTop = doc.scrollTop || document.body.scrollTop;
+          var height = doc.scrollHeight - doc.clientHeight;
+          var width = height ? (scrollTop / height) * 100 : 0;
+          bar.style.width = width + '%';
+        }
+        document.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
+      })();
+    </script>
     <script>
       (function() {
         var toggleCheckbox = document.getElementById('theme-toggle');
