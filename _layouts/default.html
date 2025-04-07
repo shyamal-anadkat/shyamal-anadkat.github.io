@@ -35,6 +35,24 @@
         z-index: 9999;
         transition: width 0.1s ease-out;
       }
+
+      /* Click ripple / sparkle effect */
+      .click-ripple {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--accent-color, rgba(255, 64, 129, 0.45));
+        transform: translate(-50%, -50%) scale(0);
+        pointer-events: none;
+        opacity: 0.8;
+        z-index: 10000;
+        transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.6s ease-out;
+      }
+      .click-ripple.done {
+        transform: translate(-50%, -50%) scale(6);
+        opacity: 0;
+      }
     </style>
 
     <div class="wrapper">
@@ -174,6 +192,27 @@
             document.body.classList.add('light-mode');
             localStorage.setItem('theme', 'light');
           }
+        });
+      })();
+    </script>
+
+    <!-- Fun click ripple effect -->
+    <script>
+      (function () {
+        document.addEventListener('click', function (e) {
+          // Ignore clicks on interactive controls to avoid overlap
+          var ignored = ['INPUT', 'TEXTAREA', 'SELECT', 'BUTTON', 'A'];
+          if (ignored.includes(e.target.tagName)) return;
+          var ripple = document.createElement('div');
+          ripple.className = 'click-ripple';
+          ripple.style.left = e.clientX + 'px';
+          ripple.style.top = e.clientY + 'px';
+          document.body.appendChild(ripple);
+          // Trigger animation in next frame
+          requestAnimationFrame(function () { ripple.classList.add('done'); });
+          ripple.addEventListener('transitionend', function () {
+            ripple.remove();
+          });
         });
       })();
     </script>
