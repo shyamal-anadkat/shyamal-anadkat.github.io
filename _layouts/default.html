@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<!-- `lang` is resolved in priority: page.lang -> site.lang -> fallback to en-US  -->
+<html lang="{{ page.lang | default: site.lang | default: 'en-US' }}">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ "/sitemap.xml" | relative_url }}" />
+    <!-- RSS/Atom feed for SEO & discovery -->
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}" />
 
     {% comment %} jekyll-seo-tag outputs standard SEO tags such as title and description {% endcomment %}
     <meta name="robots" content="index, follow">
