@@ -2,49 +2,55 @@
 layout: default
 ---
 
-<small>{{ page.date | date: "%-d %B %Y" }}</small>
-<h1>{{ page.title }}</h1>
+<article class="post" data-post-url="{{ page.url | absolute_url }}" data-post-title="{{ page.title }}" data-post-date="{{ page.date | date: "%-d %B %Y" }}">
+  <small>{{ page.date | date: "%-d %B %Y" }}</small>
+  <h1>{{ page.title }}</h1>
 
-<p class="view">by {{ page.author | default: site.author }}</p>
-{% include share-buttons.html %}
+  <p class="view">by {{ page.author | default: site.author }}</p>
+  {% include share-buttons.html %}
 
-{{content}}
+  <div class="post-content">
+    {{content}}
+  </div>
 
-{% if page.tags %}
-  <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
-{% endif %}
+  {% if page.tags %}
+    <div class="post-tags">
+      <small>tags: <em class="tag">{{ page.tags | join: "</em> - <em class='tag'>" }}</em></small>
+    </div>
+  {% endif %}
 
-<!-- Structured data: Breadcrumbs for richer search results -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "{{ '/' | absolute_url }}"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog",
-      "item": "{{ '/blog/' | absolute_url }}"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": {{ page.title | jsonify }},
-      "item": "{{ page.url | absolute_url }}"
-    }
-  ]
-}
-</script>
+  <!-- Structured data: Breadcrumbs for richer search results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ '/' | absolute_url }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "{{ '/blog/' | absolute_url }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": {{ page.title | jsonify }},
+        "item": "{{ page.url | absolute_url }}"
+      }
+    ]
+  }
+  </script>
 
-<br/><br/>
-<!-- LikeBtn.com BEGIN -->
-<span class="likebtn-wrapper" data-theme="black" data-site_id="624bb38e943ec93e59408a9b"></span>
-<script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
-<!-- LikeBtn.com END -->
-<br/><br/>
+  <br/><br/>
+  <!-- LikeBtn.com BEGIN -->
+  <span class="likebtn-wrapper" data-theme="black" data-site_id="624bb38e943ec93e59408a9b"></span>
+  <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+  <!-- LikeBtn.com END -->
+  <br/><br/>
+</article>

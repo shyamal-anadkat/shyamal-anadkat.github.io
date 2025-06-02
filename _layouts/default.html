@@ -16,6 +16,7 @@
     {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/css/theme.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/css/reading-history.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -66,6 +67,30 @@
             </label>
           </div>
         </div>
+
+        <!-- Reading History Toggle -->
+        <div class="theme-control" style="margin-top:0.5rem;">
+          <p class="theme-label">Reading History</p>
+          <div class="theme-toggle">
+            <input type="checkbox" id="toggle-history" class="toggle-checkbox" />
+            <label for="toggle-history" class="toggle-label">
+              <span class="icon history-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </span>
+              <span class="icon history-off-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                </svg>
+              </span>
+              <span class="sr-only">Toggle reading history</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Reading History Container -->
+        <div id="reading-history-container" class="reading-history"></div>
 
         <!-- Simple search box -->
         <div class="search-box">
@@ -181,5 +206,7 @@
         });
       })();
     </script>
+    <!-- Reading History Script -->
+    <script src="{{ "/assets/js/reading-history.js" | relative_url }}"></script>
   </body>
 </html>
