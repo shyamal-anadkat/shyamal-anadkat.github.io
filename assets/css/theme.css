@@ -336,3 +336,111 @@ body.dark-mode .search-box li + li {
     transform: translateX(23px);
   }
 }
+
+/* ----------------------------
+   Featured Posts Section
+   --------------------------*/
+
+/* Featured posts container */
+.featured-posts {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode override for featured posts container */
+body.dark-mode .featured-posts {
+  background-color: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Heading in featured posts */
+.featured-posts h2 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark mode override for heading */
+body.dark-mode .featured-posts h2 {
+  color: #ffffff;
+  border-bottom-color: #444;
+}
+
+/* List items in featured posts */
+.featured-posts ul {
+  padding-left: 20px;
+  list-style-type: circle;
+}
+
+.featured-posts li {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+/* Links in featured posts */
+.featured-posts a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Date text in featured posts */
+.featured-posts .post-date {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Dark mode override for date text */
+body.dark-mode .featured-posts .post-date {
+  color: #aaa;
+}
+
+/* Tags/marks in featured posts */
+.featured-posts mark {
+  padding: 0.3em;
+  background-color: #FFECB2;
+  font-size: 0.6em;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  margin-right: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode override for tags/marks */
+body.dark-mode .featured-posts mark {
+  background-color: #bb86fc;
+  color: #121212;
+}
+
+/* Empty state message */
+.featured-posts p {
+  color: #666;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .featured-posts p {
+  color: #aaa;
+}
+
+/* Code elements in featured posts */
+.featured-posts code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .featured-posts code {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
