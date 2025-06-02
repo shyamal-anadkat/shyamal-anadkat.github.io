@@ -444,3 +444,221 @@ body.dark-mode .featured-posts code {
   background-color: rgba(255, 255, 255, 0.1);
   color: #e0e0e0;
 }
+
+/* ----------------------------
+   SEO Enhancements
+   --------------------------*/
+
+/* Breadcrumb Navigation */
+.breadcrumbs {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  content: "/";
+  margin: 0 0.5rem;
+  color: #999;
+}
+
+.breadcrumbs a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+body.dark-mode .breadcrumbs a {
+  color: #aaa;
+}
+
+body.dark-mode .breadcrumbs a:hover {
+  color: #fff;
+}
+
+body.dark-mode .breadcrumbs li:not(:last-child)::after {
+  color: #666;
+}
+
+/* Article, Header, Footer Semantic Elements */
+article.post {
+  margin-bottom: 3rem;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+}
+
+.post-title {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .post-title {
+  color: #fff;
+}
+
+.post-content {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.post-content h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.post-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.5rem;
+}
+
+.post-content p {
+  margin-bottom: 1.2rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 4px;
+}
+
+.post-content blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1rem;
+  margin-left: 0;
+  color: #666;
+  font-style: italic;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .post-content blockquote {
+  border-left-color: #444;
+  color: #bbb;
+}
+
+.post-footer {
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #666;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .post-footer {
+  border-top-color: #333;
+  color: #aaa;
+}
+
+/* Post Metadata Display */
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+body.dark-mode .post-meta {
+  color: #aaa;
+}
+
+.post-meta > * {
+  margin-right: 1rem;
+}
+
+.post-meta .post-date {
+  display: flex;
+  align-items: center;
+}
+
+.post-meta .post-date svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.3rem;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.post-tags mark {
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 3px;
+  background-color: #f0f0f0;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .post-tags mark {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+/* Microdata Elements */
+[itemscope], [itemprop] {
+  /* No visible styling, but ensure proper display */
+  display: inherit;
+}
+
+/* Optimize images for lazy loading */
+img[loading="lazy"] {
+  transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"]:not([src]) {
+  opacity: 0;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .post-title {
+    font-size: 1.8rem;
+  }
+  
+  .post-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .post-content h3 {
+    font-size: 1.3rem;
+  }
+  
+  .breadcrumbs {
+    font-size: 0.8rem;
+  }
+}
