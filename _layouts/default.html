@@ -6,12 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <meta name="author" content="{{ site.author | escape }}">
+    <meta name="generator" content="Jekyll v{{ jekyll.version }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://w.likebtn.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}" as="style">
+    <link rel="preload" href="{{ "/assets/css/theme.css?v=" | append: site.github.build_revision | relative_url }}" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" as="style">
+    
     <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ "/sitemap.xml" | relative_url }}" />
     <!-- RSS/Atom feed for SEO & discovery -->
     <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}" />
 
     {% comment %} jekyll-seo-tag outputs standard SEO tags such as title and description {% endcomment %}
-    <meta name="robots" content="index, follow">
 
     {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
@@ -42,7 +59,7 @@
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
         {% if site.logo %}
-          <img src="{{site.logo | relative_url}}" alt="Logo" />
+          <img src="{{site.logo | relative_url}}" alt="Logo" width="200" height="200" loading="eager" />
         {% endif %}
 
         <br/><br/><hr><p>{{ site.description | default: site.github.project_tagline }}</p>
@@ -180,6 +197,54 @@
           }
         });
       })();
+    </script>
+    <!-- Lazy loading images -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Set up Intersection Observer for lazy loading
+        if ('IntersectionObserver' in window) {
+          const imgObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                  img.src = img.dataset.src;
+                  img.removeAttribute('data-src');
+                }
+                observer.unobserve(img);
+              }
+            });
+          }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+          });
+          
+          // Find all images that should be lazy loaded
+          document.querySelectorAll('img[data-src]').forEach(img => {
+            imgObserver.observe(img);
+          });
+          
+          // Convert regular images to lazy loaded (except for critical ones)
+          document.querySelectorAll('img:not([loading])').forEach(img => {
+            // Skip logo and other critical images
+            if (img.closest('header') || img.width < 50) return;
+            
+            // Set up for lazy loading
+            if (!img.getAttribute('data-src') && img.src) {
+              img.setAttribute('data-src', img.src);
+              img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E';
+              img.setAttribute('loading', 'lazy');
+              imgObserver.observe(img);
+            }
+          });
+        } else {
+          // Fallback for browsers that don't support Intersection Observer
+          document.querySelectorAll('img[data-src]').forEach(img => {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          });
+        }
+      });
     </script>
   </body>
 </html>
