@@ -47,20 +47,24 @@
 
         <br/><br/><hr><p>{{ site.description | default: site.github.project_tagline }}</p>
 
-        <div class="theme-toggle" style="margin-top:1rem;">
-          <input type="checkbox" id="theme-toggle" class="toggle-checkbox" />
-          <label for="theme-toggle" class="toggle-label">
-            <span class="icon sun-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                <circle cx="12" cy="12" r="5"/>
-              </svg>
-            </span>
-            <span class="icon moon-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                <path d="M21.75 15.5A9 9 0 0 1 8.5 2.25a9 9 0 1 0 13.25 13.25z"/>
-              </svg>
-            </span>
-          </label>
+        <div class="theme-control" style="margin-top:1rem;">
+          <p class="theme-label">Dark Mode</p>
+          <div class="theme-toggle">
+            <input type="checkbox" id="theme-toggle" class="toggle-checkbox" />
+            <label for="theme-toggle" class="toggle-label">
+              <span class="icon sun-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <circle cx="12" cy="12" r="5"/>
+                </svg>
+              </span>
+              <span class="icon moon-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M21.75 15.5A9 9 0 0 1 8.5 2.25a9 9 0 1 0 13.25 13.25z"/>
+                </svg>
+              </span>
+              <span class="sr-only">Toggle dark mode</span>
+            </label>
+          </div>
         </div>
 
         <!-- Simple search box -->
