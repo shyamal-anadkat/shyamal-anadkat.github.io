@@ -160,6 +160,89 @@ body.dark-mode em, body.dark-mode i {
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
+/* New and improved theme toggle styles */
+.theme-control {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.theme-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .theme-label {
+  color: #e0e0e0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Enhanced toggle appearance */
+.toggle-label {
+  background-color: #e0e0e0;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+  background-color: #3a3a3a;
+}
+
+.toggle-label::before {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+.toggle-checkbox:checked + .toggle-label::before {
+  background-color: #bb86fc;
+}
+
+/* Improved hover and focus states */
+.toggle-label:hover::before {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.toggle-checkbox:focus + .toggle-label {
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .toggle-checkbox:focus + .toggle-label {
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.2);
+}
+
+/* Better icon visibility */
+.sun-icon {
+  color: #f39c12;
+}
+
+.moon-icon {
+  color: #34495e;
+}
+
+.toggle-checkbox:checked + .toggle-label .moon-icon {
+  color: #f1c40f;
+}
+
+.toggle-checkbox:checked + .toggle-label .sun-icon {
+  color: #7f8c8d;
+}
+
 /* ----------------------------
    Simple Search box styling
    --------------------------*/
