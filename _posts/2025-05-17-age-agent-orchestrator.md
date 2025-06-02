@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Age of the Agent Orchestrator"
+featured: true
 tags:
 - Startups
 - AI
