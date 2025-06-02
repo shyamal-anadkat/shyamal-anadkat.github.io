@@ -2,89 +2,17 @@
 layout: default
 ---
 
-<!-- Visual breadcrumb navigation -->
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a href="{{ '/' | absolute_url }}" itemprop="item"><span itemprop="name">Home</span></a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a href="{{ '/' | absolute_url }}" itemprop="item"><span itemprop="name">Blog</span></a>
-      <meta itemprop="position" content="2" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <span itemprop="name" aria-current="page">{{ page.title }}</span>
-      <meta itemprop="position" content="3" />
-    </li>
-  </ol>
-</nav>
+<small>{{ page.date | date: "%-d %B %Y" }}</small>
+<h1>{{ page.title }}</h1>
 
-<article class="post h-entry" itemscope itemtype="https://schema.org/BlogPosting">
-  <header class="post-header">
-    <small>{{ page.date | date: "%-d %B %Y" }}</small>
-    <h1 class="post-title p-name" itemprop="headline name">{{ page.title }}</h1>
-    <p class="view">by <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ page.author | default: site.author }}</span></span></p>
-    {% include share-buttons.html %}
-  </header>
+<p class="view">by {{ page.author | default: site.author }}</p>
+{% include share-buttons.html %}
 
-  <div class="post-content e-content" itemprop="articleBody">
-    {{content}}
-  </div>
+{{content}}
 
-  <footer class="post-footer">
-    {% if page.tags %}
-      <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
-    {% endif %}
-
-    <br/><br/>
-    <!-- LikeBtn.com BEGIN -->
-    <span class="likebtn-wrapper" data-theme="black" data-site_id="624bb38e943ec93e59408a9b"></span>
-    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
-    <!-- LikeBtn.com END -->
-    <br/><br/>
-  </footer>
-</article>
-
-<!-- Enhanced structured data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
-  },
-  "headline": {{ page.title | jsonify }},
-  "description": {{ page.excerpt | strip_html | strip_newlines | truncate: 160 | jsonify }},
-  "image": {{ page.image | default: site.logo | absolute_url | jsonify }},
-  "author": {
-    "@type": "Person",
-    "name": {{ page.author | default: site.author | jsonify }},
-    "url": "{{ site.url }}",
-    {% if site.github_username %}
-    "sameAs": [
-      "https://github.com/{{ site.github_username }}",
-      {% if site.linkedin_username %}
-      "https://www.linkedin.com/in/{{ site.linkedin_username }}"
-      {% endif %}
-    ],
-    {% endif %}
-    "jobTitle": "Applied AI @ OpenAI"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": {{ site.author | jsonify }},
-    "logo": {
-      "@type": "ImageObject",
-      "url": {{ site.logo | absolute_url | jsonify }}
-    }
-  },
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
-  "keywords": {{ page.tags | jsonify }}
-}
-</script>
+{% if page.tags %}
+  <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+{% endif %}
 
 <!-- Structured data: Breadcrumbs for richer search results -->
 <script type="application/ld+json">
@@ -102,7 +30,7 @@ layout: default
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
-      "item": "{{ '/' | absolute_url }}"
+      "item": "{{ '/blog/' | absolute_url }}"
     },
     {
       "@type": "ListItem",
@@ -113,3 +41,10 @@ layout: default
   ]
 }
 </script>
+
+<br/><br/>
+<!-- LikeBtn.com BEGIN -->
+<span class="likebtn-wrapper" data-theme="black" data-site_id="624bb38e943ec93e59408a9b"></span>
+<script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+<!-- LikeBtn.com END -->
+<br/><br/>

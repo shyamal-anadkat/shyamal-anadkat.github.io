@@ -1,9 +1,5 @@
-# robots.txt for https://shyamal.me
-# Last updated: June 2, 2025
-
-# Allow all crawlers access to all content
 User-agent: *
 Allow: /
-
-# Sitemap location
+Sitemap: [https://shyamal.me/sitemap.xml](https://shyamal.me/sitemap.xml)User-agent: *
+Allow: /
 Sitemap: https://shyamal.me/sitemap.xml
