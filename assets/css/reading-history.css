@@ -1,0 +1,220 @@
+/* Reading History Styles */
+
+.reading-history-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color, #e1e4e8);
+  border-radius: 8px;
+  background: var(--bg-secondary, #f6f8fa);
+}
+
+.reading-history-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-primary, #24292e);
+  font-size: 1.25rem;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.history-item {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #e1e4e8);
+  border-radius: 6px;
+  transition: box-shadow 0.2s ease;
+}
+
+.history-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.history-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.history-title {
+  font-weight: 600;
+  color: var(--accent-color, #0366d6);
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.history-title:hover {
+  text-decoration: underline;
+}
+
+.history-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary, #586069);
+}
+
+.read-date {
+  color: var(--text-secondary, #586069);
+}
+
+.fully-read {
+  background: var(--success-color, #28a745);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--border-color, #e1e4e8);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent-color, #0366d6);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.clear-history {
+  background: var(--danger-color, #d73a49);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.clear-history:hover {
+  background: var(--danger-color-dark, #b31d28);
+}
+
+.no-history {
+  color: var(--text-secondary, #586069);
+  font-style: italic;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+/* Reading Stats Component */
+.reading-stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--bg-primary, #ffffff);
+  border: 1px solid var(--border-color, #e1e4e8);
+  border-radius: 6px;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color, #0366d6);
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary, #586069);
+  margin-top: 0.25rem;
+}
+
+/* Dark mode support */
+body.dark-mode .reading-history-section {
+  background: var(--bg-secondary-dark, #21262d);
+  border-color: var(--border-color-dark, #30363d);
+}
+
+body.dark-mode .history-item {
+  background: var(--bg-primary-dark, #0d1117);
+  border-color: var(--border-color-dark, #30363d);
+}
+
+body.dark-mode .history-title {
+  color: var(--accent-color-dark, #58a6ff);
+}
+
+body.dark-mode .read-date {
+  color: var(--text-secondary-dark, #8b949e);
+}
+
+body.dark-mode .no-history {
+  color: var(--text-secondary-dark, #8b949e);
+}
+
+body.dark-mode .reading-stats {
+  background: var(--bg-primary-dark, #0d1117);
+  border-color: var(--border-color-dark, #30363d);
+}
+
+body.dark-mode .stat-number {
+  color: var(--accent-color-dark, #58a6ff);
+}
+
+body.dark-mode .stat-label {
+  color: var(--text-secondary-dark, #8b949e);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .reading-history-section {
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+  
+  .history-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .reading-stats {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .stat-item {
+    text-align: left;
+  }
+  
+  .stat-number {
+    font-size: 1.25rem;
+  }
+}
+
+/* Animation for progress bar updates */
+@keyframes progressUpdate {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.progress-fill {
+  transform-origin: left;
+  animation: progressUpdate 0.5s ease-out;
+} 
