@@ -72,6 +72,11 @@
           <input type="search" id="search-input" placeholder="Search…" autocomplete="off">
           <ul id="search-results"></ul>
         </div>
+        <!-- Reading history -->
+        <details id="reading-history-details" class="reading-history" style="margin-top:1rem;">
+          <summary>Reading History</summary>
+          <ul id="reading-history-list"></ul>
+        </details>
 
 <!--         {% if site.github.is_user_page %}
         <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
@@ -179,6 +184,46 @@
             localStorage.setItem('theme', 'light');
           }
         });
+      })();
+    </script>
+    <script>
+      (function() {
+        var HISTORY_KEY = 'readingHistory';
+        var MAX_ITEMS = 20;
+        var listEl = document.getElementById('reading-history-list');
+
+        // Check if current page is a blog post (uses layout: post)
+        var isPost = {{ page.layout | jsonify }} === "post";
+        if (isPost) {
+          var title = {{ page.title | jsonify }};
+          var url = '{{ page.url | relative_url }}';
+          if (title && url) {
+            try {
+              var history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+              // Remove existing instance of this url if present
+              history = history.filter(function(item) { return item.url !== url; });
+              // Add to beginning
+              history.unshift({ title: title, url: url });
+              // Limit history length
+              if (history.length > MAX_ITEMS) history = history.slice(0, MAX_ITEMS);
+              localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+            } catch (e) { /* localStorage may be disabled */ }
+          }
+        }
+
+        // Render history list if container exists
+        if (listEl) {
+          try {
+            var stored = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+            if (!stored.length) {
+              listEl.innerHTML = '<li><em>No history yet.</em></li>';
+            } else {
+              listEl.innerHTML = stored.map(function(item) {
+                return '<li><a href="' + item.url + '">' + item.title + '</a></li>';
+              }).join('');
+            }
+          } catch (e) { /* ignore */ }
+        }
       })();
     </script>
   </body>

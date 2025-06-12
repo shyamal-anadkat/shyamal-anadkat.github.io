@@ -4,3 +4,13 @@ _site
 .DS_Store
 .idea/
 vendor/
+
+# Test artifacts
+tmp/
+spec/examples.txt
+.rspec_status
+coverage/
+test-results-*/
+
+# Jekyll cache
+.jekyll-cache/

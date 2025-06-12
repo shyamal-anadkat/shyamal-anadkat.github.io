@@ -1,0 +1,236 @@
+name: Blog Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    # Run tests daily at 6 AM UTC to catch any issues with external dependencies
+    - cron: '0 6 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        ruby-version: ['3.1', '3.2']
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch full history for better git operations
+
+    - name: Set up Ruby ${{ matrix.ruby-version }}
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true  # runs 'bundle install' and caches gems
+
+    - name: Cache Jekyll build
+      uses: actions/cache@v3
+      with:
+        path: |
+          _site
+          .sass-cache
+          .jekyll-cache
+        key: ${{ runner.os }}-jekyll-${{ hashFiles('**/*.md', '**/*.html', '**/*.yml', '**/*.scss', '**/*.css') }}
+        restore-keys: |
+          ${{ runner.os }}-jekyll-
+
+    - name: Install dependencies
+      run: |
+        bundle install
+        # Install any additional system dependencies if needed
+        sudo apt-get update
+        sudo apt-get install -y libxml2-dev libxslt-dev
+
+    - name: Lint and validate configuration
+      run: |
+        # Validate YAML configuration
+        ruby -e "require 'yaml'; YAML.load_file('_config.yml')"
+        echo "✅ Configuration file is valid"
+        
+        # Check for common Jekyll issues
+        if [ -f "Gemfile.lock" ]; then
+          echo "✅ Gemfile.lock exists"
+        else
+          echo "⚠️  Warning: Gemfile.lock not found"
+        fi
+
+    - name: Run RSpec tests
+      run: |
+        bundle exec rspec --format documentation --format json --out tmp/rspec_results.json
+      
+    - name: Build Jekyll site
+      run: |
+        bundle exec jekyll build --verbose --trace
+        echo "✅ Jekyll build completed successfully"
+
+    - name: Verify build artifacts
+      run: |
+        if [ ! -d "_site" ]; then
+          echo "❌ _site directory not found"
+          exit 1
+        fi
+        
+        if [ ! -f "_site/index.html" ]; then
+          echo "❌ index.html not generated"
+          exit 1
+        fi
+        
+        echo "✅ Build artifacts verified"
+
+    - name: Test site performance (basic)
+      run: |
+        # Check file sizes aren't too large
+        find _site -name "*.html" -size +1M -exec echo "⚠️  Large HTML file: {} " \;
+        find _site -name "*.css" -size +500k -exec echo "⚠️  Large CSS file: {} " \;
+        find _site -name "*.js" -size +500k -exec echo "⚠️  Large JS file: {} " \;
+        
+        # Count total files generated
+        total_files=$(find _site -type f | wc -l)
+        echo "📊 Total files generated: $total_files"
+        
+        # Check site size
+        site_size=$(du -sh _site | cut -f1)
+        echo "📊 Total site size: $site_size"
+
+    - name: Validate HTML and links (HTMLProofer)
+      run: |
+        # Run HTMLProofer with reasonable settings for CI
+        bundle exec htmlproofer _site \
+          --check-html \
+          --check-img-http \
+          --disable-external \
+          --allow-hash-href \
+          --ignore-status-codes "999,403,0" \
+          --ignore-urls "/localhost/,/127.0.0.1/" \
+          --report-invalid-tags \
+          --report-missing-names \
+          --report-script-embeds
+
+    - name: Test RSS feed
+      run: |
+        if [ -f "_site/feed.xml" ]; then
+          # Validate RSS feed syntax
+          xmllint --noout _site/feed.xml
+          echo "✅ RSS feed is valid XML"
+        else
+          echo "⚠️  RSS feed not found"
+        fi
+
+    - name: Test sitemap
+      run: |
+        if [ -f "_site/sitemap.xml" ]; then
+          xmllint --noout _site/sitemap.xml
+          echo "✅ Sitemap is valid XML"
+          
+          # Count URLs in sitemap
+          url_count=$(grep -c "<loc>" _site/sitemap.xml || echo "0")
+          echo "📊 URLs in sitemap: $url_count"
+        else
+          echo "⚠️  Sitemap not found at _site/sitemap.xml"
+        fi
+
+    - name: Security checks
+      run: |
+        # Check for sensitive information in built site
+        if grep -r -i "password\|secret\|key\|token" _site --exclude-dir=assets --exclude="*.js" --exclude="*.css" | grep -v "github.com"; then
+          echo "⚠️  Potential sensitive information found in site"
+          # Don't fail the build for this, just warn
+        fi
+        
+        # Check for proper robots.txt
+        if [ -f "_site/robots.txt" ]; then
+          echo "✅ robots.txt found"
+        else
+          echo "⚠️  robots.txt not found"
+        fi
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      if: always()  # Upload even if tests fail
+      with:
+        name: test-results-ruby-${{ matrix.ruby-version }}
+        path: |
+          tmp/rspec_results.json
+          _site/**/*.html
+        retention-days: 30
+
+    - name: Comment PR with test results
+      if: github.event_name == 'pull_request' && always()
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          
+          let comment = '## 🧪 Test Results\n\n';
+          
+          try {
+            if (fs.existsSync('tmp/rspec_results.json')) {
+              const results = JSON.parse(fs.readFileSync('tmp/rspec_results.json'));
+              const passed = results.summary.example_count - results.summary.failure_count;
+              
+              comment += `- ✅ **${passed}** tests passed\n`;
+              if (results.summary.failure_count > 0) {
+                comment += `- ❌ **${results.summary.failure_count}** tests failed\n`;
+              }
+              comment += `- 📊 **${results.summary.example_count}** total tests\n\n`;
+            }
+            
+            // Add site stats
+            if (fs.existsSync('_site')) {
+              const stats = require('child_process')
+                .execSync('find _site -type f | wc -l')
+                .toString().trim();
+              comment += `- 📁 **${stats}** files generated\n`;
+            }
+            
+            comment += '\n---\n*Automated test results from GitHub Actions*';
+            
+          } catch (error) {
+            comment += '❌ Could not parse test results';
+          }
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment
+          });
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2'
+        bundler-cache: true
+
+    - name: Build site
+      run: bundle exec jekyll build
+
+    - name: Serve site
+      run: bundle exec jekyll serve --detach --port 4000
+
+    - name: Wait for site to be ready
+      run: |
+        timeout 30 bash -c 'until curl --output /dev/null --silent --head --fail http://localhost:4000; do sleep 1; done'
+
+    - name: Run Lighthouse CI
+      uses: treosh/lighthouse-ci-action@v10
+      with:
+        urls: |
+          http://localhost:4000
+        uploadArtifacts: true
+        temporaryPublicStorage: true 
