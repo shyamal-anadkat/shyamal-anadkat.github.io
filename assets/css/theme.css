@@ -8,6 +8,12 @@ h1, h2, h3, h4, h5, h6, p, a, span, div {
   font-family: 'Montserrat', sans-serif;
 }
 
+/* Default mark style for light mode */
+mark {
+  background-color: #E3E3E3;
+  color: #121212;
+}
+
 @media (prefers-color-scheme: dark) {
   body:not(.light-mode) {
     background-color: #121212;
@@ -15,11 +21,11 @@ h1, h2, h3, h4, h5, h6, p, a, span, div {
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   body:not(.light-mode) a {
-    color: #bb86fc;
+    color: #82aaff;
     transition: color 0.3s ease;
   }
   body:not(.light-mode) mark {
-    background-color: #bb86fc;
+    background-color: #82aaff;
     color: #121212;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
@@ -31,11 +37,11 @@ body.dark-mode {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 body.dark-mode a {
-  color: #bb86fc;
+  color: #82aaff;
   transition: color 0.3s ease;
 }
 body.dark-mode mark {
-  background-color: #bb86fc;
+  background-color: #82aaff;
   color: #121212;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -210,7 +216,7 @@ body.dark-mode .theme-label {
 }
 
 .toggle-checkbox:checked + .toggle-label::before {
-  background-color: #bb86fc;
+  background-color: #82aaff;
 }
 
 /* Improved hover and focus states */
@@ -406,7 +412,7 @@ body.dark-mode .featured-posts .post-date {
 /* Tags/marks in featured posts */
 .featured-posts mark {
   padding: 0.3em;
-  background-color: #FFECB2;
+  background-color: #E3E3E3;
   font-size: 0.6em;
   letter-spacing: 1px;
   border-radius: 3px;
@@ -416,7 +422,7 @@ body.dark-mode .featured-posts .post-date {
 
 /* Dark mode override for tags/marks */
 body.dark-mode .featured-posts mark {
-  background-color: #bb86fc;
+  background-color: #82aaff;
   color: #121212;
 }
 
