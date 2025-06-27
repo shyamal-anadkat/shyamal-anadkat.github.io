@@ -11,7 +11,7 @@ tags:
 ---
 ![Age of Taste - shyamal x gpt-4o](https://github.com/user-attachments/assets/67e440d6-7efb-4d2d-b772-41a4de2faa55)
 
-The work humans do migrates to the handful of domains where an extra tera[FLOP](https://en.wikipedia.org/wiki/Floating_point_operations_per_second) confers little or no advantage. **work re‑orients around what cannot be sped up by more compute.**
+**work will re‑orient around what cannot be sped up by more compute.** in other words, with general intelligence, work humans do shall migrates to the handful of domains where an extra tera[FLOP](https://en.wikipedia.org/wiki/Floating_point_operations_per_second) confers little or no advantage.
 
 **the thesis is simple**: as the cost of exploring ideas approaches zero, human focus inevitably shifts to areas where raw computational power provides diminishing returns. the true bottleneck becomes judgment - when endless possibilities can be explored instantly, choosing what to build next becomes the essential skill. recognizing the difference between an output that’s merely interesting and one that’s genuinely valuable isn’t something easily automated; taste is profoundly underrated in technology.
 
