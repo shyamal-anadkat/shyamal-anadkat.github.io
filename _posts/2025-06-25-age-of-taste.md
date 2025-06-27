@@ -11,7 +11,9 @@ tags:
 ---
 ![Age of Taste - shyamal x gpt-4o](https://github.com/user-attachments/assets/67e440d6-7efb-4d2d-b772-41a4de2faa55)
 
-the thesis is simple: as the marginal cost of asking "what if?" with a machine falls toward zero and we bump up against the physical limits of pushing more bits more quickly, the work humans do migrates to the handful of domains where an extra tera[FLOP](https://en.wikipedia.org/wiki/Floating_point_operations_per_second) confers little or no advantage. **work re‑orients around what cannot be sped up by more compute.**
+The work humans do migrates to the handful of domains where an extra tera[FLOP](https://en.wikipedia.org/wiki/Floating_point_operations_per_second) confers little or no advantage. **work re‑orients around what cannot be sped up by more compute.**
+
+**the thesis is simple**: as the cost of exploring ideas approaches zero, human focus inevitably shifts to areas where raw computational power provides diminishing returns. the true bottleneck becomes judgment - when endless possibilities can be explored instantly, choosing what to build next becomes the essential skill. recognizing the difference between an output that’s merely interesting and one that’s genuinely valuable isn’t something easily automated; taste is profoundly underrated in technology.
 
 we have a pattern for this. each major tech wave has been a collapse in the "**cost of action**". steam freed us from animal muscle; labor moved from pulling plows to coordinating factories. electrification let us run those factories all night; value shifted from turning cranks to designing systems. the microprocessor made logic essentially free; software ate the world and the draftsperson became a CAD operator, the typesetter a UX designer. GPUs and now specialized AI accelerators took things like rendering, simulation, and gradient descent - once impractically slow – and made them commodities. each time it wasn’t just that we made existing tasks cheaper; we re‑priced entire labor markets and pushed attention to whatever remained scarce.
 
