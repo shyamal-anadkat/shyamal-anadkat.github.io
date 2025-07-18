@@ -450,3 +450,24 @@ body.dark-mode .featured-posts code {
   background-color: rgba(255, 255, 255, 0.1);
   color: #e0e0e0;
 }
+
+/* ----------------------------
+   Reading History styles
+   --------------------------*/
+.read-post {
+  opacity: 0.55;
+  position: relative;
+  transition: opacity 0.2s ease;
+}
+.read-post::after {
+  content: "\2713"; /* checkmark */
+  margin-left: 0.25em;
+  font-size: 0.75em;
+  color: var(--accent-color, #ff4081);
+}
+body.dark-mode .read-post {
+  opacity: 0.7;
+}
+body.dark-mode .read-post::after {
+  color: #82aaff;
+}
