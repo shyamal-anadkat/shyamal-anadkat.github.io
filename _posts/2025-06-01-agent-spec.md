@@ -2,7 +2,6 @@
 layout: post
 title: "Age of the Agent Spec"
 date: 2025-06-01
-featured: true
 tags:
 - Agent
 - AI
