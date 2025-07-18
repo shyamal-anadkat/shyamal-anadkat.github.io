@@ -181,5 +181,60 @@
         });
       })();
     </script>
+    <!-- Reading History -->
+    <script>
+    (function(){
+      var KEY='readingHistoryV1';
+      function load(){ try { return JSON.parse(localStorage.getItem(KEY)||'[]'); } catch(e){ return []; } }
+      function save(arr){ try{ localStorage.setItem(KEY, JSON.stringify(arr)); }catch(e){} }
+      function cleanup(path){
+        if(!path) return path;
+        try { path=new URL(path, window.location.origin).pathname; } catch(e){}
+        if(path.length>1 && path.endsWith('/')) path=path.slice(0,-1);
+        return path;
+      }
+      function record(entry){
+        if(!entry||!entry.url) return;
+        entry.url=cleanup(entry.url);
+        var hist=load();
+        for(var i=hist.length-1;i>=0;i--){ if(cleanup(hist[i].url)===entry.url) hist.splice(i,1); }
+        hist.unshift(entry);
+        if(hist.length>100) hist.length=100;
+        save(hist);
+      }
+      function markLinks(){
+        var hist=load();
+        if(!hist.length) return;
+        var seen={}; hist.forEach(function(e){ seen[cleanup(e.url)]=true; });
+        var links=document.querySelectorAll('a[href]');
+        links.forEach(function(a){
+          var href=a.getAttribute('href');
+          if(!href) return;
+          if(href.startsWith('#')||href.startsWith('mailto:')||href.startsWith('tel:')) return;
+          var path=cleanup(href);
+          if(seen[path]) a.classList.add('read-post');
+        });
+      }
+      // Removed renderRecent() and Recently Read UI per request
+      document.addEventListener('DOMContentLoaded', function(){
+        markLinks();
+      });
+      window.ReadingHistory={record:record,load:load,mark:markLinks};
+    })();
+    </script>
+    {% if page.layout == 'post' %}
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      if(window.ReadingHistory){
+        window.ReadingHistory.record({
+          url: '{{ page.url | relative_url }}',
+          title: {{ page.title | jsonify }},
+          dateDisplay: '{{ page.date | date: "%b %d, %Y" }}',
+          ts: Date.now()
+        });
+      }
+    });
+    </script>
+    {% endif %}
   </body>
 </html>
