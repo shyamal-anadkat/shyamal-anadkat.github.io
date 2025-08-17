@@ -14,6 +14,34 @@ layout: default
   <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
 {% endif %}
 
+{% if page.tags and page.tags.size > 0 %}
+<br/>
+<br/>
+<h3>Related posts</h3>
+<ul>
+  {% assign shown = 0 %}
+  {% for p in site.posts %}
+    {% if p.url != page.url %}
+      {% assign share = false %}
+      {% for t in page.tags %}
+        {% if p.tags contains t %}
+          {% assign share = true %}
+        {% endif %}
+      {% endfor %}
+      {% if share %}
+        <li>
+          {{ p.date | date: '%B %d, %Y'}} <a href="{{ p.url }}">{{ p.title }}</a>
+        </li>
+        {% assign shown = shown | plus: 1 %}
+      {% endif %}
+    {% endif %}
+    {% if shown >= 5 %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+</ul>
+{% endif %}
+
 <!-- Structured data: Breadcrumbs for richer search results -->
 <script type="application/ld+json">
 {

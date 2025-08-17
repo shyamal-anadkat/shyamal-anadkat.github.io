@@ -1,0 +1,57 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+---
+
+<h1>Tags</h1>
+
+{% assign sorted_tags = site.tags | sort %}
+
+{% if sorted_tags.size == 0 %}
+<p>No tags yet.</p>
+{% endif %}
+
+<div class="tags-index">
+  <ul>
+    {% for tag in sorted_tags %}
+      {% assign tag_name = tag[0] %}
+      {% assign posts = tag[1] %}
+      <li>
+        <a href="#{{ tag_name | slugify }}">{{ tag_name }}</a>
+        <small>({{ posts | size }})</small>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<hr/>
+
+<div class="tags-sections">
+  {% for tag in sorted_tags %}
+    {% assign tag_name = tag[0] %}
+    {% assign posts = tag[1] | sort: 'date' | reverse %}
+    <h2 id="{{ tag_name | slugify }}">{{ tag_name }}</h2>
+    <ul>
+      {% for post in posts %}
+        <li>
+          {{ post.date | date: '%B %d, %Y'}}
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <p><a href="#top">Back to top</a></p>
+    <br/>
+  {% endfor %}
+  {% if sorted_tags.size == 0 %}
+    <p>No tagged posts to show.</p>
+  {% endif %}
+</div>
+
+<style>
+  .tags-index ul { list-style: none; padding-left: 0; }
+  .tags-index li { display: inline-block; margin: 0 0.5rem 0.5rem 0; }
+  .tags-sections h2 { margin-top: 2rem; }
+</style>
+
+

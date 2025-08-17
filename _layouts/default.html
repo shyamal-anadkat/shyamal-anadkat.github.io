@@ -47,6 +47,14 @@
 
         <br/><br/><hr><p>{{ site.description | default: site.github.project_tagline }}</p>
 
+        <nav class="site-nav" aria-label="Primary">
+          <a href="{{ '/' | relative_url }}">Home</a>
+          <span> · </span>
+          <a href="{{ '/tags/' | relative_url }}">Tags</a>
+          <span> · </span>
+          <a href="{{ '/assets/html/work.html' | relative_url }}">Work</a>
+        </nav>
+
         <div class="theme-control" style="margin-top:1rem;">
           <p class="theme-label">Dark Mode</p>
           <div class="theme-toggle">
