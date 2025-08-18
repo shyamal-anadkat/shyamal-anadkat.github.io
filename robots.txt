@@ -1,5 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: [https://shyamal.me/sitemap.xml](https://shyamal.me/sitemap.xml)User-agent: *
-Allow: /
 Sitemap: https://shyamal.me/sitemap.xml

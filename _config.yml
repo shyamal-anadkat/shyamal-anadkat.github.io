@@ -5,10 +5,12 @@ plugins:
 # Adds /feed.xml RSS feed for better indexing & syndication
 - jekyll-feed
 url: "https://shyamal.me"
+lang: en-US
 title: shyamal's space
 author: Shyamal Anadkat
 author_email: shyamalanadkat@gmail.com
 logo: assets/img/logo.png
+image: assets/img/logo.png
 github_username:  shyamal-anadkat
 linkedin_username: zostale
 description: Applied AI @ OpenAI • AI Advisor to Startups • On Deck Fellow • Proud Son • Duke + Wisconsin Alum • Building for impact • Venture Scout • Neo Mentor • Duke AI Advisory Board
