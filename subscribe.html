@@ -1,0 +1,57 @@
+---
+layout: default
+title: Subscribe
+permalink: /subscribe/
+---
+
+<div class="subscribe-page">
+  <h1>Subscribe</h1>
+
+  <p class="lead">You can subscribe to new posts using the blog’s RSS/Atom feed. This works with any feed reader and many email‑digest services.</p>
+
+  <div class="subscribe-card">
+    <h2><span class="rss-icon" aria-hidden="true">📡</span> RSS Feed</h2>
+    <p class="feed-url">
+      <a href="{{ '/feed.xml' | absolute_url }}">{{ '/feed.xml' | absolute_url }}</a>
+    </p>
+    <div class="subscribe-actions">
+      <a class="btn btn-primary" href="{{ '/feed.xml' | absolute_url }}">View Feed</a>
+      <button class="btn btn-secondary" id="copy-feed" type="button">Copy URL</button>
+    </div>
+  </div>
+  </br>
+  <h2>Email Options (Free)</h2>
+  <p>
+    Prefer email updates? Use any RSS‑to‑email service and paste the feed URL above. Popular free options include services like Follow.it or Feedrabbit — they’ll email you when a new post is published.
+  </p>
+
+  <p>
+    Tip: most modern mail apps (and some browsers) also support subscribing to RSS directly. If in doubt, copy the feed link and paste it into your reader or service of choice.
+  </p>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('copy-feed');
+  if (!btn) return;
+  var feedUrl = '{{ '/feed.xml' | absolute_url }}';
+  function done(){
+    var original = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(function(){ btn.textContent = original; }, 1500);
+  }
+  btn.addEventListener('click', function(){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(feedUrl).then(done).catch(function(){});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = feedUrl;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch(e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+  });
+})();
+</script>
