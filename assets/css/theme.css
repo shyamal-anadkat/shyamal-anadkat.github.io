@@ -14,6 +14,10 @@ mark {
   color: #121212;
 }
 
+/* High-contrast text selection (light mode) */
+::selection { background-color: #b3d4ff; color: #121212; }
+::-moz-selection { background-color: #b3d4ff; color: #121212; }
+
 @media (prefers-color-scheme: dark) {
   body:not(.light-mode) {
     background-color: #121212;
@@ -29,6 +33,9 @@ mark {
     color: #121212;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
+  /* High-contrast text selection (dark scheme, auto) */
+  body:not(.light-mode) ::selection { background-color: #82aaff; color: #121212; }
+  body:not(.light-mode) ::-moz-selection { background-color: #82aaff; color: #121212; }
 }
 
 body.dark-mode {
@@ -45,6 +52,9 @@ body.dark-mode mark {
   color: #121212;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+/* High-contrast text selection (explicit dark mode) */
+body.dark-mode ::selection { background-color: #82aaff; color: #121212; }
+body.dark-mode ::-moz-selection { background-color: #82aaff; color: #121212; }
 
 body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
   color: #ffffff;
