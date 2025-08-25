@@ -14,6 +14,21 @@
     <meta name="robots" content="index, follow">
 
     {% seo %}
+    {%- comment -%}
+      Ensure a share image appears on social previews.
+      Priority: page.image -> site.image -> site.logo
+    {%- endcomment -%}
+    {%- assign share_image = page.image | default: site.image | default: site.logo -%}
+    {%- if share_image -%}
+      {%- assign share_image_url = share_image -%}
+      {%- unless share_image_url contains '://' -%}
+        {%- assign share_image_url = share_image | absolute_url -%}
+      {%- endunless -%}
+      <meta property="og:image" content="{{ share_image_url }}">
+      <meta property="og:image:alt" content="{{ page.title | default: site.title | escape }}">
+      <meta name="twitter:image" content="{{ share_image_url }}">
+      <meta name="twitter:card" content="summary_large_image">
+    {%- endif -%}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/css/theme.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
