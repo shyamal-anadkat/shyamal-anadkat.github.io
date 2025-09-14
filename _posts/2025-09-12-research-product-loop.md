@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to run a research Loop and a product Loop at your company"
+title: "How to run a research loop and a product loop at your company"
 tags:
 - Startups
 - AI
