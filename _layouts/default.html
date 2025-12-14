@@ -123,12 +123,31 @@
         var resultsBox = document.getElementById('search-results');
         var data;
 
+        var activeIndex = -1;
+
         function render(list) {
           if (!resultsBox) return;
+          activeIndex = -1;
           if (!list.length) { resultsBox.innerHTML = ''; return; }
           resultsBox.innerHTML = list.map(function (item) {
-            return '<li><a href="' + item.url + '">' + item.title + '</a></li>';
+            return '<li><a href="' + item.url + '" tabindex="-1">' + item.title + '</a></li>';
           }).join('');
+        }
+
+        function getItems() {
+          return resultsBox ? Array.prototype.slice.call(resultsBox.querySelectorAll('a')) : [];
+        }
+
+        function updateActive(index) {
+          var items = getItems();
+          items.forEach(function (link) { link.classList.remove('active'); });
+          if (!items.length) return;
+          if (index < 0) index = items.length - 1;
+          if (index >= items.length) index = 0;
+          activeIndex = index;
+          var activeItem = items[activeIndex];
+          activeItem.classList.add('active');
+          activeItem.scrollIntoView({ block: 'nearest' });
         }
 
         function search(query) {
@@ -154,10 +173,26 @@
           if (!data) return; // fetch may still be in-flight
           search(this.value);
         });
+
+        input.addEventListener('keydown', function (event) {
+          var items = getItems();
+          if (!items.length) return;
+          if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            updateActive(activeIndex + 1);
+          } else if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            updateActive(activeIndex - 1);
+          } else if (event.key === 'Enter' && activeIndex >= 0) {
+            event.preventDefault();
+            items[activeIndex].click();
+          }
+        });
         // Hide results when clicking outside
         document.addEventListener('click', function(e){
           if(!resultsBox.contains(e.target) && e.target !== input){
             resultsBox.innerHTML='';
+            activeIndex = -1;
           }
         });
       })();
