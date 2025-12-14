@@ -188,6 +188,34 @@
             items[activeIndex].click();
           }
         });
+        // Focus the search bar whenever the user starts typing elsewhere
+        function isEditable(target) {
+          if (!target) return false;
+          if (target === input) return true;
+          if (target.isContentEditable) return true;
+          var tag = target.tagName;
+          return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
+        }
+        document.addEventListener('keydown', function (event) {
+          if (!input || isEditable(event.target)) return;
+          if (event.metaKey || event.ctrlKey || event.altKey) return;
+          var key = event.key;
+          var isCharacter = key.length === 1 || key === ' ';
+          var shouldHandle = isCharacter || key === 'Backspace' || key === 'Delete';
+          if (!shouldHandle) return;
+          input.focus();
+          input.select();
+          if (!data) init();
+          if (isCharacter) {
+            input.value = key === ' ' ? ' ' : key;
+            search(input.value);
+            event.preventDefault();
+          } else if (key === 'Backspace' || key === 'Delete') {
+            input.value = '';
+            search('');
+            event.preventDefault();
+          }
+        });
         // Hide results when clicking outside
         document.addEventListener('click', function(e){
           if(!resultsBox.contains(e.target) && e.target !== input){
