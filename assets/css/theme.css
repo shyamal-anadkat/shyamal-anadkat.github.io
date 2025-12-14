@@ -401,12 +401,22 @@ body.dark-mode .search-box ul {
   color: inherit;
 }
 
+.search-box li a.active,
 .search-box li a:hover {
   background: rgba(0, 0, 0, 0.04);
 }
 
+.search-box li a.active {
+  font-weight: 600;
+}
+
 body.dark-mode .search-box li a:hover {
   background: rgba(255, 255, 255, 0.06);
+}
+
+body.dark-mode .search-box li a.active {
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 600;
 }
 
 .search-box li + li {
