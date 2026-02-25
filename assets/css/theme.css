@@ -3,6 +3,8 @@
 body {
   font-family: 'Montserrat', sans-serif;
   color: #060606;
+  font-size: 17px;
+  line-height: 1.65;
 }
 
 h1, h2, h3, h4, h5, h6, p, a, span, div {
@@ -445,6 +447,31 @@ body.dark-mode .search-box li + li {
   }
   .toggle-checkbox:checked + .toggle-label::before {
     transform: translateX(23px);
+  }
+}
+
+
+/* Homepage post title contrast in light mode */
+.home-animate .featured-posts a,
+.home-animate > ul li a {
+  color: #060606;
+}
+
+.home-animate .featured-posts a:hover,
+.home-animate > ul li a:hover {
+  color: #000000;
+}
+
+/* Preserve brighter links for dark mode */
+body.dark-mode .home-animate .featured-posts a,
+body.dark-mode .home-animate > ul li a {
+  color: #82aaff;
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.light-mode) .home-animate .featured-posts a,
+  body:not(.light-mode) .home-animate > ul li a {
+    color: #82aaff;
   }
 }
 
