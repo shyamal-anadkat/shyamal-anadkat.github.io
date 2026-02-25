@@ -17,3 +17,23 @@ description: something new • ex-Applied AI @ OpenAI • AI Advisor to Startups
 show_downloads: false
 google_analytics: G-38XE3DD209
 permalink: /blog/:title/
+
+social:
+  name: Shyamal Anadkat
+  links:
+    - https://github.com/shyamal-anadkat
+    - https://www.linkedin.com/in/zostale/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: Shyamal Anadkat
+      image: /assets/img/logo.png
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      image: /assets/img/logo.png

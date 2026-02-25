@@ -58,7 +58,7 @@ layout: default
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
-      "item": "{{ '/blog/' | absolute_url }}"
+      "item": "{{ '/' | absolute_url }}"
     },
     {
       "@type": "ListItem",
@@ -67,6 +67,32 @@ layout: default
       "item": "{{ page.url | absolute_url }}"
     }
   ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.excerpt | default: site.description | strip_html | normalize_whitespace | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": {{ page.author | default: site.author | jsonify }}
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": {{ site.author | jsonify }}
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "url": "{{ page.url | absolute_url }}",
+  "image": "{{ page.image | default: site.image | default: site.logo | absolute_url }}",
+  "keywords": {{ page.tags | join: ', ' | jsonify }}
 }
 </script>
 
