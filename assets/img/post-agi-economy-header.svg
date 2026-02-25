@@ -1,0 +1,68 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">post agi world economy abstract header</title>
+  <desc id="desc">abstract visualization of atoms, energy, and instructions flowing through a network</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a0f1e"/>
+      <stop offset="1" stop-color="#1b2f5b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 430) rotate(90) scale(360 700)">
+      <stop stop-color="#8cd5ff" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#8cd5ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="240" y1="450" x2="1360" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5eead4" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#5eead4" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+
+  <g opacity="0.35" stroke="#9fb7ff" stroke-width="1.5">
+    <path d="M110 180H1490"/>
+    <path d="M110 315H1490"/>
+    <path d="M110 450H1490"/>
+    <path d="M110 585H1490"/>
+    <path d="M110 720H1490"/>
+    <path d="M260 95V805"/>
+    <path d="M530 95V805"/>
+    <path d="M800 95V805"/>
+    <path d="M1070 95V805"/>
+    <path d="M1340 95V805"/>
+  </g>
+
+  <rect x="240" y="436" width="1120" height="28" rx="14" fill="url(#beam)" filter="url(#soft)"/>
+
+  <g fill="#fde68a" opacity="0.95">
+    <circle cx="320" cy="450" r="16"/>
+    <circle cx="560" cy="450" r="13"/>
+    <circle cx="800" cy="450" r="11"/>
+    <circle cx="1040" cy="450" r="14"/>
+    <circle cx="1280" cy="450" r="16"/>
+  </g>
+
+  <g fill="#7dd3fc" opacity="0.8">
+    <circle cx="440" cy="330" r="7"/>
+    <circle cx="680" cy="640" r="9"/>
+    <circle cx="920" cy="270" r="8"/>
+    <circle cx="1160" cy="620" r="7"/>
+    <circle cx="1360" cy="355" r="8"/>
+  </g>
+
+  <g stroke="#c4b5fd" stroke-width="3" stroke-linecap="round" opacity="0.72">
+    <path d="M320 450L440 330L560 450L680 640L800 450L920 270L1040 450L1160 620L1280 450L1360 355"/>
+  </g>
+
+  <g fill="#c4b5fd" opacity="0.9">
+    <rect x="250" y="210" width="44" height="44" rx="10"/>
+    <rect x="502" y="560" width="44" height="44" rx="10"/>
+    <rect x="755" y="210" width="44" height="44" rx="10"/>
+    <rect x="1008" y="560" width="44" height="44" rx="10"/>
+    <rect x="1260" y="210" width="44" height="44" rx="10"/>
+  </g>
+</svg>

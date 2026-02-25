@@ -8,6 +8,8 @@ tags:
 - execution
 ---
 
+![post agi world economy abstract header](/assets/img/post-agi-economy-header.svg)
+
 the economy is mostly atoms + energy + instructions.
 
 atoms are what you want (house, a meal, a road, a phone). energy is what moves atoms. instructions are what tell energy how to move atoms.
