@@ -53,7 +53,7 @@
       },
       "potentialAction": {
         "@type": "SearchAction",
-        "target": {{ '/?q=SEARCH_TERM' | absolute_url | replace: 'SEARCH_TERM', '{search_term_string}' | jsonify }},
+        "target": "{{ '/?q=' | absolute_url }}{search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
