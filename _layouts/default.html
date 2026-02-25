@@ -11,7 +11,12 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}" />
 
     {% comment %} jekyll-seo-tag outputs standard SEO tags such as title and description {% endcomment %}
-    <meta name="robots" content="index, follow">
+    {% assign is_404 = page.permalink == '/404.html' or page.url == '/404.html' %}
+    {% if is_404 %}
+      <meta name="robots" content="noindex, follow">
+    {% else %}
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    {% endif %}
 
     {% seo %}
     {%- comment -%}
@@ -29,6 +34,30 @@
       <meta name="twitter:image" content="{{ share_image_url }}">
       <meta name="twitter:card" content="summary_large_image">
     {%- endif -%}
+    <meta name="twitter:site" content="@shyamalanadkat">
+
+    {% assign canonical_href = page.url | replace:'index.html','' | absolute_url %}
+    <link rel="canonical" href="{{ canonical_href }}">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": {{ site.title | jsonify }},
+      "url": {{ site.url | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "inLanguage": {{ site.lang | default: 'en-US' | jsonify }},
+      "publisher": {
+        "@type": "Person",
+        "name": {{ site.author | jsonify }}
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ '/?q={search_term_string}' | absolute_url | jsonify }},
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/css/theme.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
