@@ -129,7 +129,8 @@
 
         <!-- Simple search box -->
         <div class="search-box">
-          <input type="search" id="search-input" placeholder="Search…" autocomplete="off">
+          <input type="search" id="search-input" placeholder="Search posts…" autocomplete="off">
+          <button type="button" id="search-shortcut" class="search-shortcut" aria-label="Open quick search (Command K)">⌘K</button>
           <ul id="search-results"></ul>
         </div>
 
@@ -149,6 +150,19 @@
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
+    <div id="search-overlay" class="search-overlay" hidden>
+      <div id="search-overlay-backdrop" class="search-overlay-backdrop" aria-hidden="true"></div>
+      <div class="search-overlay-panel" role="dialog" aria-modal="true" aria-labelledby="search-overlay-title">
+        <div class="search-overlay-top">
+          <p id="search-overlay-title" class="search-overlay-title">Quick Search</p>
+          <button type="button" id="search-overlay-close" class="search-overlay-close" aria-label="Close quick search">Esc</button>
+        </div>
+        <div class="search-box search-box-overlay">
+          <input type="search" id="search-overlay-input" placeholder="Search posts…" autocomplete="off">
+          <ul id="search-overlay-results"></ul>
+        </div>
+      </div>
+    </div>
     <script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=pt_e8b43a7181ccee823728489fc4a8c7"></script>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     <script>
@@ -156,106 +170,201 @@
         var input = document.getElementById('search-input');
         if (!input) return;
         var resultsBox = document.getElementById('search-results');
+        var shortcutButton = document.getElementById('search-shortcut');
+        var overlay = document.getElementById('search-overlay');
+        var overlayBackdrop = document.getElementById('search-overlay-backdrop');
+        var overlayClose = document.getElementById('search-overlay-close');
+        var overlayInput = document.getElementById('search-overlay-input');
+        var overlayResults = document.getElementById('search-overlay-results');
         var data;
+        var isLoading = false;
+        var sidebarCtx = { input: input, resultsBox: resultsBox, activeIndex: -1 };
+        var overlayCtx = (overlay && overlayInput && overlayResults) ? {
+          input: overlayInput,
+          resultsBox: overlayResults,
+          activeIndex: -1
+        } : null;
+        var contexts = overlayCtx ? [sidebarCtx, overlayCtx] : [sidebarCtx];
 
-        var activeIndex = -1;
-
-        function render(list) {
-          if (!resultsBox) return;
-          activeIndex = -1;
-          if (!list.length) { resultsBox.innerHTML = ''; return; }
-          resultsBox.innerHTML = list.map(function (item) {
+        function render(ctx, list) {
+          if (!ctx || !ctx.resultsBox) return;
+          ctx.activeIndex = -1;
+          if (!list.length) { ctx.resultsBox.innerHTML = ''; return; }
+          ctx.resultsBox.innerHTML = list.map(function (item) {
             return '<li><a href="' + item.url + '" tabindex="-1">' + item.title + '</a></li>';
           }).join('');
         }
 
-        function getItems() {
-          return resultsBox ? Array.prototype.slice.call(resultsBox.querySelectorAll('a')) : [];
+        function getItems(ctx) {
+          return (ctx && ctx.resultsBox) ? Array.prototype.slice.call(ctx.resultsBox.querySelectorAll('a')) : [];
         }
 
-        function updateActive(index) {
-          var items = getItems();
+        function updateActive(ctx, index) {
+          var items = getItems(ctx);
           items.forEach(function (link) { link.classList.remove('active'); });
           if (!items.length) return;
           if (index < 0) index = items.length - 1;
           if (index >= items.length) index = 0;
-          activeIndex = index;
-          var activeItem = items[activeIndex];
+          ctx.activeIndex = index;
+          var activeItem = items[ctx.activeIndex];
           activeItem.classList.add('active');
           activeItem.scrollIntoView({ block: 'nearest' });
         }
 
-        function search(query) {
+        function search(ctx, query) {
+          if (!ctx) return;
           if (!data) return;
           query = query.trim().toLowerCase();
-          if (!query) { render([]); return; }
+          if (!query) { render(ctx, []); return; }
           var matches = data.filter(function (item) {
             return item.title.toLowerCase().indexOf(query) !== -1 || item.content.toLowerCase().indexOf(query) !== -1;
           }).slice(0, 10);
-          render(matches);
+          render(ctx, matches);
         }
 
         function init() {
+          if (data || isLoading) return;
+          isLoading = true;
           fetch('{{ "/search.json" | relative_url }}')
             .then(function (r) { return r.json(); })
-            .then(function (json) { data = json; search(input.value); });
+            .then(function (json) {
+              data = json;
+              contexts.forEach(function (ctx) {
+                search(ctx, ctx.input.value);
+              });
+            })
+            .finally(function () {
+              isLoading = false;
+            });
         }
 
-        input.addEventListener('focus', function () {
-          if (!data) init();
-        });
-        input.addEventListener('input', function () {
-          if (!data) return; // fetch may still be in-flight
-          search(this.value);
-        });
+        function isOverlayOpen() {
+          return !!overlay && !overlay.hasAttribute('hidden');
+        }
 
-        input.addEventListener('keydown', function (event) {
-          var items = getItems();
-          if (!items.length) return;
-          if (event.key === 'ArrowDown') {
-            event.preventDefault();
-            updateActive(activeIndex + 1);
-          } else if (event.key === 'ArrowUp') {
-            event.preventDefault();
-            updateActive(activeIndex - 1);
-          } else if (event.key === 'Enter' && activeIndex >= 0) {
-            event.preventDefault();
-            items[activeIndex].click();
-          }
-        });
+        function openOverlay() {
+          if (!overlayCtx || !overlay) return;
+          overlay.removeAttribute('hidden');
+          document.body.classList.add('search-overlay-open');
+          overlayInput.value = input.value;
+          if (!data) init();
+          if (data) search(overlayCtx, overlayInput.value);
+          overlayInput.focus();
+          overlayInput.select();
+        }
+
+        function closeOverlay() {
+          if (!overlayCtx || !overlay) return;
+          input.value = overlayInput.value;
+          if (data) search(sidebarCtx, input.value);
+          overlay.setAttribute('hidden', 'hidden');
+          document.body.classList.remove('search-overlay-open');
+          render(overlayCtx, []);
+        }
+
+        function bindSearchContext(ctx) {
+          if (!ctx) return;
+          ctx.input.addEventListener('focus', function () {
+            if (!data) init();
+          });
+
+          ctx.input.addEventListener('input', function () {
+            if (!data) return;
+            search(ctx, this.value);
+          });
+
+          ctx.input.addEventListener('keydown', function (event) {
+            var items = getItems(ctx);
+            if (event.key === 'ArrowDown') {
+              event.preventDefault();
+              updateActive(ctx, ctx.activeIndex + 1);
+              return;
+            }
+            if (event.key === 'ArrowUp') {
+              event.preventDefault();
+              updateActive(ctx, ctx.activeIndex - 1);
+              return;
+            }
+            if (event.key === 'Enter' && ctx.activeIndex >= 0 && items[ctx.activeIndex]) {
+              event.preventDefault();
+              items[ctx.activeIndex].click();
+              return;
+            }
+            if (event.key === 'Escape' && ctx === overlayCtx) {
+              event.preventDefault();
+              closeOverlay();
+            }
+          });
+        }
+
+        bindSearchContext(sidebarCtx);
+        bindSearchContext(overlayCtx);
+
         // Focus the search bar whenever the user starts typing elsewhere
         function isEditable(target) {
           if (!target) return false;
-          if (target === input) return true;
+          if (target === input || target === overlayInput) return true;
           if (target.isContentEditable) return true;
           var tag = target.tagName;
           return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
         }
+
         document.addEventListener('keydown', function (event) {
-          if (!input || isEditable(event.target)) return;
+          var key = (event.key || '').toLowerCase();
+          if ((event.metaKey || event.ctrlKey) && key === 'k') {
+            event.preventDefault();
+            openOverlay();
+            return;
+          }
+          if (key === 'escape' && isOverlayOpen()) {
+            closeOverlay();
+            return;
+          }
+          if (isEditable(event.target)) return;
           if (event.metaKey || event.ctrlKey || event.altKey) return;
-          var key = event.key;
-          var isCharacter = key.length === 1 || key === ' ';
-          var shouldHandle = isCharacter || key === 'Backspace' || key === 'Delete';
+          var activeCtx = isOverlayOpen() ? overlayCtx : sidebarCtx;
+          if (!activeCtx) return;
+          var originalKey = event.key;
+          var isCharacter = originalKey.length === 1 || originalKey === ' ';
+          var shouldHandle = isCharacter || key === 'backspace' || key === 'delete';
           if (!shouldHandle) return;
-          input.focus();
-          input.select();
+          activeCtx.input.focus();
+          activeCtx.input.select();
           if (!data) init();
           if (isCharacter) {
-            input.value = key === ' ' ? ' ' : key;
-            search(input.value);
+            activeCtx.input.value = originalKey === ' ' ? ' ' : originalKey;
+            if (data) search(activeCtx, activeCtx.input.value);
             event.preventDefault();
-          } else if (key === 'Backspace' || key === 'Delete') {
-            input.value = '';
-            search('');
+          } else if (key === 'backspace' || key === 'delete') {
+            activeCtx.input.value = '';
+            if (data) search(activeCtx, '');
             event.preventDefault();
           }
         });
+
+        if (shortcutButton) {
+          shortcutButton.addEventListener('click', function () {
+            openOverlay();
+          });
+        }
+        if (overlayBackdrop) {
+          overlayBackdrop.addEventListener('click', closeOverlay);
+        }
+        if (overlayClose) {
+          overlayClose.addEventListener('click', closeOverlay);
+        }
+
         // Hide results when clicking outside
-        document.addEventListener('click', function(e){
-          if(!resultsBox.contains(e.target) && e.target !== input){
-            resultsBox.innerHTML='';
-            activeIndex = -1;
+        document.addEventListener('click', function (e) {
+          contexts.forEach(function (ctx) {
+            if (!ctx || !ctx.resultsBox || !ctx.input) return;
+            if (!ctx.resultsBox.contains(e.target) && e.target !== ctx.input) {
+              ctx.resultsBox.innerHTML = '';
+              ctx.activeIndex = -1;
+            }
+          });
+          if (isOverlayOpen() && overlay && !overlay.querySelector('.search-overlay-panel').contains(e.target)) {
+            closeOverlay();
           }
         });
       })();

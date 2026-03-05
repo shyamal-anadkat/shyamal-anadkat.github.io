@@ -1,8 +1,12 @@
+export PATH := /opt/homebrew/opt/ruby@3.3/bin:$(PATH)
+
+BUNDLE := /opt/homebrew/opt/ruby@3.3/bin/bundle
+
 run:
-	lsof -ti:4000 | xargs kill -9 && bundle install && bundle exec jekyll serve
+	lsof -ti:4000 | xargs kill -9 && $(BUNDLE) install && $(BUNDLE) exec jekyll serve
 
 setup:
-	rm -rf vendor/bundle && rm Gemfile.lock && arch -x86_64 bundle install && arch -x86_64 bundle exec jekyll serve
+	rm -rf vendor/bundle && rm -f Gemfile.lock && $(BUNDLE) install && $(BUNDLE) exec jekyll serve
 
 serve:
-	arch -x86_64 bundle exec jekyll serve
+	$(BUNDLE) exec jekyll serve
