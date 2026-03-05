@@ -187,6 +187,16 @@ body.dark-mode em, body.dark-mode i {
   margin-bottom: 1rem;
 }
 
+.mentorcruise-embed {
+  margin-bottom: 1rem;
+}
+
+.mentorcruise-embed img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .theme-label {
   font-size: 14px;
   font-weight: 600;
