@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /*?*
 
 Sitemap: https://shyamal.me/sitemap.xml
 Host: shyamal.me
