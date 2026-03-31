@@ -369,6 +369,34 @@ body.dark-mode .toggle-checkbox:focus + .toggle-label {
 }
 
 /* ----------------------------
+   Focus-visible ring (keyboard navigation a11y)
+   --------------------------*/
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #267CB9;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.light-mode) a:focus-visible,
+  body:not(.light-mode) button:focus-visible,
+  body:not(.light-mode) input:focus-visible,
+  body:not(.light-mode) [role="button"]:focus-visible {
+    outline-color: #82aaff;
+  }
+}
+
+body.dark-mode a:focus-visible,
+body.dark-mode button:focus-visible,
+body.dark-mode input:focus-visible,
+body.dark-mode [role="button"]:focus-visible {
+  outline-color: #82aaff;
+}
+
+/* ----------------------------
    Sidebar Search box styling
    --------------------------*/
 
