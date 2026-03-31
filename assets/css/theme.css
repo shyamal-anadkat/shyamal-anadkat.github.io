@@ -5,6 +5,7 @@ body {
   color: #060606;
   font-size: 17px;
   line-height: 1.65;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6, p, a, span, div {
@@ -44,16 +45,13 @@ mark {
 body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 body.dark-mode a {
   color: #82aaff;
-  transition: color 0.3s ease;
 }
 body.dark-mode mark {
   background-color: #82aaff;
   color: #121212;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 /* High-contrast text selection (explicit dark mode) */
 body.dark-mode ::selection { background-color: #82aaff; color: #121212; }
@@ -61,22 +59,18 @@ body.dark-mode ::-moz-selection { background-color: #82aaff; color: #121212; }
 
 body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
   color: #ffffff;
-  transition: color 0.3s ease;
 }
 
 body.dark-mode a {
   color: #82aaff;
-  transition: color 0.3s ease;
 }
 
 body.dark-mode strong, body.dark-mode b {
   color: #ffffff;
-  transition: color 0.3s ease;
 }
 
 body.dark-mode em, body.dark-mode i {
   color: #e0e0e0;
-  transition: color 0.3s ease;
 }
 
 #theme-toggle {
@@ -813,7 +807,6 @@ body.dark-mode .home-animate > ul li a {
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 30px;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -829,7 +822,6 @@ body.dark-mode .featured-posts {
   color: #333;
   border-bottom: 2px solid #ddd;
   padding-bottom: 10px;
-  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Dark mode override for heading */
@@ -847,13 +839,11 @@ body.dark-mode .featured-posts h2 {
 .featured-posts li {
   margin-bottom: 15px;
   font-size: 1.1em;
-  transition: color 0.3s ease;
 }
 
 /* Links in featured posts */
 .featured-posts a {
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
 /* Date text in featured posts */
@@ -861,7 +851,6 @@ body.dark-mode .featured-posts h2 {
   font-size: 0.9em;
   color: #666;
   margin-top: 5px;
-  transition: color 0.3s ease;
 }
 
 /* Dark mode override for date text */
@@ -876,7 +865,6 @@ body.dark-mode .featured-posts .post-date {
   font-size: 0.6em;
   border-radius: 3px;
   margin-right: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Dark mode override for tags/marks */
@@ -889,7 +877,6 @@ body.dark-mode .featured-posts mark {
 .featured-posts p {
   color: #666;
   font-style: italic;
-  transition: color 0.3s ease;
 }
 
 body.dark-mode .featured-posts p {
@@ -902,7 +889,6 @@ body.dark-mode .featured-posts p {
   padding: 2px 4px;
   border-radius: 3px;
   font-family: monospace;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode .featured-posts code {
