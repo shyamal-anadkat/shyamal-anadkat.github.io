@@ -740,6 +740,14 @@ body.dark-mode .search-box-overlay li a:hover {
 }
 
 
+/* ----------------------------
+   Nav link touch targets (min 44px)
+   --------------------------*/
+.site-nav a {
+  display: inline-block;
+  padding: 0.65rem 0.1rem;
+}
+
 /* Homepage post title contrast in light mode */
 .home-animate .featured-posts a,
 .home-animate > ul li a {
