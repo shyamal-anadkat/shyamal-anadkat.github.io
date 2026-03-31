@@ -36,9 +36,6 @@
     {%- endif -%}
     <meta name="twitter:site" content="@shyamalanadkat">
 
-    {% assign canonical_href = page.url | replace:'index.html','' | absolute_url %}
-    <link rel="canonical" href="{{ canonical_href }}">
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -50,11 +47,6 @@
       "publisher": {
         "@type": "Person",
         "name": {{ site.author | jsonify }}
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "{{ '/?q=' | absolute_url }}{search_term_string}",
-        "query-input": "required name=search_term_string"
       }
     }
     </script>
