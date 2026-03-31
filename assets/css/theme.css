@@ -741,6 +741,13 @@ body.dark-mode .search-box-overlay li a:hover {
 
 
 /* ----------------------------
+   Prevent hover layout shift (base theme uses font-weight:bold on hover)
+   --------------------------*/
+a:hover, a:focus {
+  font-weight: inherit;
+}
+
+/* ----------------------------
    Nav link touch targets (min 44px)
    --------------------------*/
 .site-nav a {
