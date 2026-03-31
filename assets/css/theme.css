@@ -874,7 +874,6 @@ body.dark-mode .featured-posts .post-date {
   padding: 0.3em;
   background-color: #E3E3E3;
   font-size: 0.6em;
-  letter-spacing: 1px;
   border-radius: 3px;
   margin-right: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
