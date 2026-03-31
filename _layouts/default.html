@@ -83,7 +83,11 @@
 
     <div class="wrapper">
       <header>
+        {% if page.layout == 'post' %}
+        <p class="site-title"><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></p>
+        {% else %}
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+        {% endif %}
 
         {% if site.logo %}
           <img src="{{site.logo | relative_url}}" alt="Logo" />

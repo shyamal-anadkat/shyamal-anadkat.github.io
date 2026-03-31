@@ -369,6 +369,30 @@ body.dark-mode .toggle-checkbox:focus + .toggle-label {
 }
 
 /* ----------------------------
+   Site title on post pages (avoid duplicate H1)
+   --------------------------*/
+p.site-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 20px;
+  line-height: 1.1;
+}
+p.site-title a {
+  color: #267CB9;
+  text-decoration: none;
+}
+p.site-title a:hover {
+  color: #069;
+}
+body.dark-mode p.site-title {
+  color: #fff;
+}
+body.dark-mode p.site-title a {
+  color: #82aaff;
+}
+
+/* ----------------------------
    Focus-visible ring (keyboard navigation a11y)
    --------------------------*/
 a:focus-visible,
