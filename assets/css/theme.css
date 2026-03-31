@@ -841,7 +841,7 @@ body.dark-mode .featured-posts h2 {
 /* List items in featured posts */
 .featured-posts ul {
   padding-left: 20px;
-  list-style-type: circle;
+  list-style-type: disc;
 }
 
 .featured-posts li {
