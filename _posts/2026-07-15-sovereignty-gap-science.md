@@ -2,11 +2,12 @@
 layout: post
 title: "a sovereignty gap in science"
 description: "AI is making scientific possibilities abundant. The next bottleneck is turning them into verified physical knowledge and reproducible industrial capability."
+featured: true
 tags:
 - AI
 - science
 - R&D
-- manufacturing
+- india
 ---
 
 *some opportunities appear first as markets. others as pressure.*
