@@ -12,7 +12,7 @@ tags:
 
 *some opportunities appear first as markets. others as pressure.*
 
-“sovereignty gap” (h/t [@abhayvenkatesh1](https://x.com/abhayvenkatesh1)) shows up when society requires an essential function that its established institutions cannot perform without exceeding their mandates. the need is justified but no real existing actor is structurally equipped to meet it.
+A sovereignty gap appears when society depends on a capability that no existing institution is designed to provide. Each institution may perform its own role well, but the essential function falls between their mandates, leaving no actor responsible for delivering it.
 
 scientific r&d is revealing such a gap.
 
