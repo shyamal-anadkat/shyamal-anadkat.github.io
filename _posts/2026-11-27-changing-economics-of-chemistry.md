@@ -114,8 +114,6 @@ A chemist who has taken a reaction from milligrams to tonnes holds knowledge tha
 
 As access to AI models spreads, the cost of testing their ideas will still vary by location. Where Indian companies can run experiments more cheaply, they can do that work in labs and pilot plants they already have and test promising results at manufacturing scale. With permission to reuse old lab records, they could learn from years of failed reactions and scale-up runs and develop their own processes and models. That gives a CRO a way to earn from intellectual property it owns alongside the hours it bills.
 
-China has many of the same advantages, and its researchers are already building [automated chemistry labs](https://academic.oup.com/nsr/article/9/10/nwac190/6694008). India's ability to compete will depend on how quickly its companies learn from the experiments they already run.
-
 Indian R&D leaders should work out now who owns the experimental data and who has the right to learn from it. They also need to decide who owns improvements to the models and who captures the value of any intellectual property those models help generate. We should help build this capability in India's scientific institutions. They could develop models and experimental methods that research teams around the world use.
 
 ## What comes next
