@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Re: AI adoption in india right now is amazing to watch"
-featured: true
 tags:
 - Education
 - AI

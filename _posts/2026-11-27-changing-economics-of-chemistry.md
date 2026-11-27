@@ -4,6 +4,7 @@ title: "The Changing Economics of Chemistry: India's Asymmetric Opportunity"
 description: "How cheaper scientific search changes chemistry R&D, and where India's labs and manufacturers have an advantage."
 excerpt: "How cheaper scientific search changes chemistry R&D, and where India's labs and manufacturers have an advantage."
 image: /assets/img/changing-economics-of-chemistry-discovery.jpg
+featured: true
 tags:
 - AI
 - chemistry
