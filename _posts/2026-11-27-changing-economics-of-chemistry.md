@@ -128,4 +128,4 @@ By 2030, I suspect some chemistry organizations will have capabilities that comp
 
 India spent several decades building an advantage in doing chemistry efficiently and at scale. Over the next decade, it has a chance to build an advantage in discovering new chemistry, too.
 
-I'd like to hear from R&D leaders and experimental scientists in India who are thinking about these questions and want to collaborate on new research.
+We'd like to hear from experimental scientists, R&D leaders, and executives at pharma companies, CROs, CDMOs, and specialty chemical companies who are interested in collaborating on new research.
