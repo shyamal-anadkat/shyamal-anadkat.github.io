@@ -34,7 +34,7 @@ A few developments from the last 18 months:
 
 **October 2026.** Roche and ETH Zurich researchers published a [closed-loop learning framework](https://www.nature.com/articles/s43588-026-01063-0) for predicting reaction outcomes and regioselectivity in C–H borylation. Through active learning, they expanded their dataset to cover 812 substrates for regioselectivity and 6,865 high-throughput experimental measurements for reaction outcome prediction.
 
-The researchers were measuring different things. Some asked chemists to judge proposed routes. Others tested predictions in the lab or measured improvements in an industrial process. Models are playing a bigger role in lab decisions. These studies leave open whether AI can do chemistry research autonomously across a broad range of problems. I wonder what the research coming out in late 2027 will look like.
+The researchers were measuring different things. Some asked chemists to judge proposed routes. Others tested predictions in the lab or measured improvements in an industrial process. Models are playing a bigger role in lab decisions. These are published successes in specific settings. They leave open whether AI can do chemistry research autonomously across a broad range of problems, or how often it can beat conventional R&D on cost and time once failures are counted.
 
 ## Search economics
 
@@ -45,6 +45,10 @@ Some of this search is becoming computational. Suppose a chemist has five plausi
 How does the chance of solving the problem change if you spend $1, $100, $1,000 or $10,000 on computation? If an industrial process is worth millions of dollars a year, there may be good reason to spend heavily on inference.
 
 I suspect different kinds of problems will respond very differently to more compute. Some will benefit most from additional reasoning, others from higher-fidelity physical simulations. Some will need new experimental data. Industrial R&D teams should make it a research priority to figure out where more computation can save lab work and where they'll still need to run experiments.
+
+How much lab work does another dollar of computation save? You could measure that by giving two teams the same chemistry problem and comparing what each spends to reach the same standard of evidence. If the team with more compute reaches that standard with fewer experiments, you can measure the savings. If it generates more ideas that still need testing, the cost may simply move to the lab.
+
+![Two illustrative cost curves fall over time. Hypothesis generation falls faster and crosses below physical verification.]({{ '/assets/img/chemistry-discovery-costs.png' | relative_url }})
 
 ## Verification economics
 
@@ -64,7 +68,7 @@ These apply across medicinal chemistry, process development and materials discov
 
 A chemistry company learns a lot in 20 years. A failed synthesis, an unexpected impurity, an abandoned route, a chromatogram or a failed scale-up can all tell you something about the chemistry. Most of that knowledge stays scattered across notebooks, instruments, old reports and the heads of experienced chemists.
 
-Consider two CROs, each performing 100,000 reactions a year. One archives its results when a project ends. The other, wherever data rights permit, uses those results to improve its predictive models, design better experiments and learn more about the chemistry. After five years, both have performed half a million reactions. The second CRO starts the next half million with stronger scientific priors. How much of that knowledge transfers across molecules, reaction families and physical scales is still an open question, but even small gains could be worth a lot across thousands of projects.
+Consider two CROs, each performing 100,000 reactions a year. One archives its results when a project ends. The other, wherever data rights permit, uses those results to improve its predictive models, design better experiments and learn more about the chemistry. After five years, both have performed half a million reactions. The second CRO starts the next half million with stronger scientific priors. How much of that knowledge transfers across molecules, reaction families and physical scales is still an open question, but even small gains could be worth a lot across thousands of projects. What the CRO learns depends on how varied the experiments are, how well it measures them, and whether it records failures. A reaction count alone tells you little about what the next team can use.
 
 R&D throughput tells you how much work a team gets done. The institutional learning rate tells you how much the team improves by doing that work. I'd track how much reaction prediction accuracy improves per 10,000 experiments and whether unfamiliar problems take fewer runs to solve than they did a year ago. I'd also look for signs that knowledge transfers across programs and that teams use manufacturing failures to inform molecular design and route selection earlier. Over time, those measures may tell you more than a headcount or an inventory of instruments.
 
@@ -82,7 +86,7 @@ As CROs get more productive, they could initially face pricing pressure under FT
 
 CDMOs that find better routes and more reliable process conditions could develop proprietary processes, improve manufacturing economics and strengthen customer relationships. In specialty chemicals, cheaper search could make new product categories commercially viable.
 
-The price of research also shapes how much of it gets done. Some molecules, catalysts, materials and industrial processes may never have been seriously investigated because the work was too expensive or too uncertain. If research gets much cheaper, the size of today's R&D market will be a poor guide to the size of the opportunity.
+The cost of research also shapes which questions are worth asking. Suppose a process improvement could save $100,000 a year. A company might pass on a $500,000 research campaign and take a chance on the same question for $10,000. If costs fall far enough, companies could pursue molecules, catalysts, materials and processes they would otherwise leave unexplored. The size of today's R&D market would be a poor guide to that opportunity.
 
 ## Where to start
 
@@ -108,9 +112,11 @@ I think a country's ability to generate new scientific knowledge will matter mor
 
 A chemist who has taken a reaction from milligrams to tonnes holds knowledge that is hard to acquire from the scientific literature. Understanding why a reaction fails at scale, how impurities propagate, how mixing affects selectivity, or how variations in raw materials affect whether a process holds up takes years of empirical experience. Frontier scientific models need access to this kind of knowledge.
 
-India's accumulated industrial knowledge could help train frontier models. Its labs could produce the experimental feedback to improve them, and its manufacturing infrastructure could help test discoveries under commercially relevant constraints.
+As access to AI models spreads, the cost of testing their ideas will still vary by location. Where Indian companies can run experiments more cheaply, they can do that work in labs and pilot plants they already have and test promising results at manufacturing scale. With permission to reuse old lab records, they could learn from years of failed reactions and scale-up runs and develop their own processes and models. That gives a CRO a way to earn from intellectual property it owns alongside the hours it bills.
 
-Indian R&D leaders should work out now who owns the experimental data and who has the right to learn from it. They also need to decide who owns improvements to the models and who captures the value of any intellectual property those models help generate. We should help build this capability in India's scientific institutions so we don't spend the next decade licensing it from elsewhere.
+China has many of the same advantages, and its researchers are already building [automated chemistry labs](https://academic.oup.com/nsr/article/9/10/nwac190/6694008). India's ability to compete will depend on how quickly its companies learn from the experiments they already run.
+
+Indian R&D leaders should work out now who owns the experimental data and who has the right to learn from it. They also need to decide who owns improvements to the models and who captures the value of any intellectual property those models help generate. We should help build this capability in India's scientific institutions. They could develop models and experimental methods that research teams around the world use.
 
 ## What comes next
 
@@ -124,8 +130,10 @@ I'd use four questions to judge how well a chemistry organization can compete ov
 
 4. How much of the economic value created by this intelligence does it retain?
 
-By 2030, I suspect some chemistry organizations will have capabilities that competitors struggle to replicate, even if their competitors have access to the same frontier AI models. The advantage will come from years of experimental feedback, better scientific priors, proprietary knowledge and experience running these systems.
+India spent the last three decades building an advantage in making medicines and chemicals at scale. Over the next decade, it has a chance to build an advantage in discovery, too.
 
-India spent several decades building an advantage in doing chemistry efficiently and at scale. Over the next decade, it has a chance to build an advantage in discovering new chemistry, too.
+By 2035, the most valuable chemistry companies may be the ones that learn fastest from their experiments. A company that can use what it learned on one project to solve the next in fewer runs builds an advantage that's hard to copy, even for competitors with access to the same AI models.
+
+India already has many of the labs, pilot plants and factories this would take. The work now is to make what chemists learn at the bench and in the plant available to the teams deciding what to test next.
 
 We'd like to hear from experimental scientists, R&D leaders, and executives at pharma companies, CROs, CDMOs, and specialty chemical companies who are interested in collaborating on new research.
